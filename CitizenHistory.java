@@ -43,14 +43,14 @@ public class CitizenHistory extends javax.swing.JFrame {
 
     
 
-void showDate() {
+void showDate() {  //Ημερομηνία
         Date d = new Date();
         SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
         txtdate.setText(s.format(d));
 
     }
 
-    void showTime() {
+    void showTime() { //Ώρα
         new Timer(0, new ActionListener() {
 
             @Override
