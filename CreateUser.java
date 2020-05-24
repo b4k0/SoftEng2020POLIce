@@ -70,9 +70,9 @@ public class CreateUser extends javax.swing.JFrame {
         txttime = new javax.swing.JLabel();
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
+        SelectCitizen = new javax.swing.JButton();
+        SelectPolice = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -186,51 +186,46 @@ public class CreateUser extends javax.swing.JFrame {
         jLabel7.setText("Πάτρα,Ελλάδα");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 51, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Ακύρωση");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.setBackground(new java.awt.Color(0, 51, 255));
+        Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        Cancel.setText("Ακύρωση");
+        Cancel.setBorder(null);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 120, 40));
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 120, 40));
 
-        jButton5.setBackground(new java.awt.Color(0, 55, 255));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_global_citizen_40px_1.png"))); // NOI18N
-        jButton5.setText("Πολίτης");
-        jButton5.setBorder(null);
-        jButton5.setFocusPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        SelectCitizen.setBackground(new java.awt.Color(0, 55, 255));
+        SelectCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        SelectCitizen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_global_citizen_40px_1.png"))); // NOI18N
+        SelectCitizen.setText("Πολίτης");
+        SelectCitizen.setBorder(null);
+        SelectCitizen.setFocusPainted(false);
+        SelectCitizen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                SelectCitizenActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 170, 100));
+        jPanel1.add(SelectCitizen, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 170, 100));
 
-        jButton6.setBackground(new java.awt.Color(0, 55, 255));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_40px.png"))); // NOI18N
-        jButton6.setText("Αστυνομικός");
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        SelectPolice.setBackground(new java.awt.Color(0, 55, 255));
+        SelectPolice.setForeground(new java.awt.Color(255, 255, 255));
+        SelectPolice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_40px.png"))); // NOI18N
+        SelectPolice.setText("Αστυνομικός");
+        SelectPolice.setBorder(null);
+        SelectPolice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                SelectPoliceActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 170, 100));
+        jPanel1.add(SelectPolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 170, 100));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Δημιουργία Λογαριασμού");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel11MousePressed(evt);
-            }
-        });
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,29 +253,23 @@ public class CreateUser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel5MousePressed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
          HomePage a = new HomePage();
         a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_CancelActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void SelectCitizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectCitizenActionPerformed
        CreateUserPageCitizen a = new  CreateUserPageCitizen();
        a.setVisible(true);
        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_SelectCitizenActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void SelectPoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectPoliceActionPerformed
          CreateUserPagePolice a = new  CreateUserPagePolice();
        a.setVisible(true);
        this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jLabel11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MousePressed
-        CreateUser a = new  CreateUser();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel11MousePressed
+    }//GEN-LAST:event_SelectPoliceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,9 +370,9 @@ public class CreateUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton Cancel;
+    private javax.swing.JButton SelectCitizen;
+    private javax.swing.JButton SelectPolice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
