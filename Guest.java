@@ -8,13 +8,9 @@ package police;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -29,9 +25,6 @@ public class Guest extends javax.swing.JFrame {
     
    
 
-public class Answer {
-   
-}
       Connection con;
       PreparedStatement pst;
      
@@ -84,8 +77,8 @@ public class Answer {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
+        SentEm = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -94,7 +87,7 @@ public class Answer {
         txttime = new javax.swing.JLabel();
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,23 +108,23 @@ public class Answer {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel5.setText("Έξοδος");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
+        Exit.setText("Έξοδος");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                ExitMousePressed(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_sent_30px.png"))); // NOI18N
-        jLabel9.setText("Αναφορά Περιστατικού");
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        SentEm.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        SentEm.setForeground(new java.awt.Color(255, 255, 255));
+        SentEm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_sent_30px.png"))); // NOI18N
+        SentEm.setText("Αναφορά Περιστατικού");
+        SentEm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                SentEmMouseClicked(evt);
             }
         });
 
@@ -155,13 +148,13 @@ public class Answer {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addComponent(jLabel5))
+                        .addComponent(Exit))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(126, 126, 126)
                         .addComponent(jLabel10))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel9)))
+                        .addComponent(SentEm)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -174,9 +167,9 @@ public class Answer {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel10)
                 .addGap(84, 84, 84)
-                .addComponent(jLabel9)
+                .addComponent(SentEm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addGap(40, 40, 40))
         );
 
@@ -220,28 +213,23 @@ public class Answer {
         jLabel7.setText("Πάτρα,Ελλάδα");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 51, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Ακύρωση");
-        jButton3.setBorder(null);
-        jButton3.setFocusPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.setBackground(new java.awt.Color(0, 51, 255));
+        Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        Cancel.setText("Ακύρωση");
+        Cancel.setBorder(null);
+        Cancel.setFocusPainted(false);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 130, 40));
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 130, 40));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_user_30px.png"))); // NOI18N
         jLabel11.setText("Σύνδεση ως Επισκέπτης");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel11MousePressed(evt);
-            }
-        });
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,7 +247,7 @@ public class Answer {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
@@ -267,23 +255,19 @@ public class Answer {
 
         }
 
-    }//GEN-LAST:event_jLabel5MousePressed
+    }//GEN-LAST:event_ExitMousePressed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
          HomePage a = new HomePage();
         a.setVisible(true);
          this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_CancelActionPerformed
 
-    private void jLabel11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MousePressed
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+    private void SentEmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SentEmMouseClicked
         GuestSentEm a = new GuestSentEm();
         a.setVisible(true);
          this.dispose();
-    }//GEN-LAST:event_jLabel9MouseClicked
+    }//GEN-LAST:event_SentEmMouseClicked
 
     /**
      * @param args the command line arguments
@@ -384,7 +368,9 @@ public class Answer {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Cancel;
+    private javax.swing.JLabel Exit;
+    private javax.swing.JLabel SentEm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -392,10 +378,8 @@ public class Answer {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel txtdate;
