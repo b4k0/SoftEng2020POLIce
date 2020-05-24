@@ -327,15 +327,13 @@ public class CreateUserCitizen extends javax.swing.JFrame {
        String idcard = txtid.getText();
     
        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        if (fullname.equals("")|| username.equals("") || password.equals("") || address.equals("") || telephone.equals("") || idcard.equals("") )
+        {
+            JOptionPane.showMessageDialog(null,"Ένα ή περισσότερα στοιχεία είναι κενά!","Αποτυχία δημιουργίας Λογαριασμού",JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/POLIce?useUnicode=yes?&characterEncoding=UTF-8","root","");
@@ -349,7 +347,7 @@ public class CreateUserCitizen extends javax.swing.JFrame {
                  
                  pst.executeUpdate();
                  
-                 JOptionPane.showMessageDialog(this,"Δημιουργήσατε λογαριασμό επιτυχώς");
+                 JOptionPane.showMessageDialog(this,"Επιτυχής Εγγραφή");
                  HomePage a = new HomePage();
                  a.setVisible(true);
                  this.dispose();
@@ -368,6 +366,7 @@ public class CreateUserCitizen extends javax.swing.JFrame {
         } catch (SQLException ex) {
            Logger.getLogger(CreateUserCitizen.class.getName()).log(Level.SEVERE, null, ex);
        }
+     }
     }//GEN-LAST:event_CreateUserCitizenActionPerformed
 
     private void CleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CleanActionPerformed
