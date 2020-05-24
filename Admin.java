@@ -39,6 +39,7 @@ public class Admin extends javax.swing.JFrame {
         txtdate.setText(s.format(d));
 
     }
+      // ώρα
 
     void showTime() {
         new Timer(0, new ActionListener() {
