@@ -22,14 +22,14 @@ import javax.swing.Timer;
  *
  * @author user
  */
-public class CreateUserPageCitizen extends javax.swing.JFrame {
+public class CreateUserCitizen extends javax.swing.JFrame {
    Connection con;
    PreparedStatement pst;
    
     /**
      * Creates new form LoginPage
      */
-    public CreateUserPageCitizen() {
+    public CreateUserCitizen() {
         initComponents();
         showDate();
         showTime();
@@ -69,7 +69,7 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -81,9 +81,9 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
         txtfull = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        CreateUserCitizen = new javax.swing.JButton();
+        Clean = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
         txtuser = new javax.swing.JTextField();
         txtadd = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -112,13 +112,13 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel5.setText("Έξοδος");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
+        Exit.setText("Έξοδος");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                ExitMousePressed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(96, 96, 96)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addContainerGap(105, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -158,7 +158,7 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
                 .addGap(125, 125, 125)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addGap(40, 40, 40))
         );
 
@@ -215,41 +215,41 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
         jLabel17.setText("Αριθμός Ταυτότητας");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Δημιουργία");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        CreateUserCitizen.setBackground(new java.awt.Color(0, 51, 255));
+        CreateUserCitizen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        CreateUserCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        CreateUserCitizen.setText("Δημιουργία");
+        CreateUserCitizen.setBorder(null);
+        CreateUserCitizen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                CreateUserCitizenActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 170, 40));
+        jPanel1.add(CreateUserCitizen, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 170, 40));
 
-        jButton2.setBackground(new java.awt.Color(0, 51, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Καθαρισμός");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Clean.setBackground(new java.awt.Color(0, 51, 255));
+        Clean.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Clean.setForeground(new java.awt.Color(255, 255, 255));
+        Clean.setText("Καθαρισμός");
+        Clean.setBorder(null);
+        Clean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CleanActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 150, 40));
+        jPanel1.add(Clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 150, 40));
 
-        jButton3.setBackground(new java.awt.Color(0, 51, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Ακύρωση");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.setBackground(new java.awt.Color(0, 51, 255));
+        Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        Cancel.setText("Ακύρωση");
+        Cancel.setBorder(null);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 150, 40));
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 150, 40));
 
         txtuser.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         jPanel1.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 210, 30));
@@ -301,7 +301,7 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
@@ -309,15 +309,15 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_jLabel5MousePressed
+    }//GEN-LAST:event_ExitMousePressed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
         CreateUser a = new  CreateUser();
        a.setVisible(true);
        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_CancelActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void CreateUserCitizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateUserCitizenActionPerformed
         
        String fullname = txtfull.getText();
        String username = txtuser.getText();
@@ -364,20 +364,20 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CreateUserPageCitizen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CreateUserCitizen.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-           Logger.getLogger(CreateUserPageCitizen.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(CreateUserCitizen.class.getName()).log(Level.SEVERE, null, ex);
        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_CreateUserCitizenActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CleanActionPerformed
        txtfull.setText("");
        txtuser.setText("");
        txtpass.setText("");
        txtadd.setText("");
        txttel.setText("");
        txtid.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CleanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,14 +396,78 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateUserPageCitizen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateUserCitizen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateUserPageCitizen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateUserCitizen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateUserPageCitizen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateUserCitizen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateUserPageCitizen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateUserCitizen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -472,15 +536,16 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateUserPageCitizen().setVisible(true);
+                new CreateUserCitizen().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Cancel;
+    private javax.swing.JButton Clean;
+    private javax.swing.JButton CreateUserCitizen;
+    private javax.swing.JLabel Exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -493,7 +558,6 @@ public class CreateUserPageCitizen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
