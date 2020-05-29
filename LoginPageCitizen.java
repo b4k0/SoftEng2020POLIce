@@ -408,6 +408,6 @@ ResultSet rs;
     private javax.swing.JLabel txtdate;
     private javax.swing.JPasswordField txtpass;
     private javax.swing.JLabel txttime;
-    public javax.swing.JTextField txtuser;
+    public static javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }
