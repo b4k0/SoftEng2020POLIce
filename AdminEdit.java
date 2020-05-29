@@ -8,17 +8,29 @@ package police;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author user
  */
 public class AdminEdit extends javax.swing.JFrame {
-      
+      Connection con;
+      PreparedStatement pst1,pst2;
+      ResultSet rs1,rs2;
     /**
      * Creates new form LoginPage
      */
@@ -26,12 +38,94 @@ public class AdminEdit extends javax.swing.JFrame {
         initComponents();
         showDate();
         showTime();
+        table();
         
+       
         
 
     }
     
+    public void table(){
+    int c;
+           try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
+            pst1 = con.prepareStatement("select * from guest ");
+            pst2 = con.prepareStatement("select * from em_citizen ");
+            
+           rs1 = pst1.executeQuery();
+           rs2 = pst2.executeQuery();
      
+           ResultSetMetaData Rss = rs2.getMetaData();
+           
+           c = Rss.getColumnCount();
+           
+           DefaultTableModel Df = (DefaultTableModel)jTable3.getModel();
+           Df.setRowCount(0);
+           
+           while(rs1.next())
+           {
+               Vector v2 = new Vector();
+               
+               for (int a=1; a<=c; a++)
+               {
+                   v2.add(rs1.getString("id")); 
+                   
+                       v2.add(rs1.getString("id")); 
+             
+                      v2.add(rs1.getString("emergency")); 
+   
+                         v2.add(rs1.getString("address_em"));
+                   
+                            v2.add(rs1.getString("date"));
+                   
+                                 v2.add(rs1.getString("time"));
+                                 
+                                   v2.add(rs1.getString("situation"));
+                     } 
+                
+                   
+                     
+                           
+                               
+                   
+              Df.addRow(v2);
+               
+           }
+           
+           
+           while(rs2.next())
+           {
+               Vector v2 = new Vector();
+               
+               for(int a=1; a<=c; a++)
+               {
+                  v2.add(rs2.getString("id")); 
+                   v2.add(rs2.getString("username"));
+                    v2.add(rs2.getString("emergency"));
+                     v2.add(rs2.getString("address_em"));
+                      
+                       v2.add(rs2.getString("date"));
+                        v2.add(rs2.getString("time"));
+                         v2.add(rs2.getString("situation"));
+                         
+               }
+               
+               
+                Df.addRow(v2);
+           }
+         
+                 
+            
+        
+        } catch (ClassNotFoundException ex) { 
+              Logger.getLogger(AdminEdit.class.getName()).log(Level.SEVERE, null, ex);
+          } catch (SQLException ex) {
+              Logger.getLogger(AdminEdit.class.getName()).log(Level.SEVERE, null, ex);
+          } 
+    
+    }
+    
     
     void showDate() {
         Date d = new Date();
@@ -66,8 +160,8 @@ public class AdminEdit extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
+        Logout = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -77,10 +171,11 @@ public class AdminEdit extends javax.swing.JFrame {
         txttime = new javax.swing.JLabel();
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton6 = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        txtsit = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -100,23 +195,23 @@ public class AdminEdit extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel5.setText("Έξοδος");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
+        Exit.setText("Έξοδος");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                ExitMousePressed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        jLabel8.setText("Aποσύνδεση");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        Logout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Logout.setForeground(new java.awt.Color(255, 255, 255));
+        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        Logout.setText("Aποσύνδεση");
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+                LogoutMousePressed(evt);
             }
         });
 
@@ -128,11 +223,6 @@ public class AdminEdit extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_edit_30px.png"))); // NOI18N
         jLabel10.setText("Eπεξεργασία Kατάστασης");
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel10MousePressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -149,7 +239,7 @@ public class AdminEdit extends javax.swing.JFrame {
                             .addComponent(jLabel1)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(jLabel5))
+                        .addComponent(Exit))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(jLabel2))
@@ -157,7 +247,7 @@ public class AdminEdit extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel8))))
+                            .addComponent(Logout))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -172,9 +262,9 @@ public class AdminEdit extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addComponent(jLabel10)
                 .addGap(42, 42, 42)
-                .addComponent(jLabel8)
+                .addComponent(Logout)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addGap(41, 41, 41))
         );
 
@@ -218,58 +308,69 @@ public class AdminEdit extends javax.swing.JFrame {
         jLabel7.setText("Πάτρα,Ελλάδα");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        jButton5.setBackground(new java.awt.Color(0, 51, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Ακύρωση");
-        jButton5.setBorder(null);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.setBackground(new java.awt.Color(0, 51, 255));
+        Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        Cancel.setText("Ακύρωση");
+        Cancel.setBorder(null);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 170, 40));
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 170, 40));
 
-        jTable1.setBackground(new java.awt.Color(0, 51, 255));
-        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Update.setBackground(new java.awt.Color(0, 51, 255));
+        Update.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Update.setForeground(new java.awt.Color(255, 255, 255));
+        Update.setText("Ανανέωση");
+        Update.setBorder(null);
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 180, 40));
+
+        jTable3.setBackground(new java.awt.Color(0, 51, 255));
+        jTable3.setFont(new java.awt.Font("Segoe UI Black", 1, 8)); // NOI18N
+        jTable3.setForeground(new java.awt.Color(255, 255, 255));
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "id", "name", "surname", "peristatiko", "address"
+                "id ", "Username", "Περιστατικό", "Διεύθυνση", "Ημερομηνία", "Ώρα", "Κατάσταση"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 480, 190));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        jButton6.setBackground(new java.awt.Color(0, 51, 255));
-        jButton6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Επεξεργασία");
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 180, 40));
+        jTable3.setGridColor(new java.awt.Color(0, 51, 255));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTable3);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 560, 160));
+
+        txtsit.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtsit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Επιλέξτε Κατάσταση:", "Σε αναμονή", "Απεσταλμένο", "Επιβεβαιωμένο", "Ολοκληρωμένο" }));
+        jPanel1.add(txtsit, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, 190, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -286,7 +387,7 @@ public class AdminEdit extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+    private void LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMousePressed
        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -300,34 +401,91 @@ public class AdminEdit extends javax.swing.JFrame {
         
         
        
-    }//GEN-LAST:event_jLabel8MousePressed
+    }//GEN-LAST:event_LogoutMousePressed
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
         } else {
 
         }
-    }//GEN-LAST:event_jLabel5MousePressed
+    }//GEN-LAST:event_ExitMousePressed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
        Admin a = new Admin();
         a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_CancelActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        PoliceTeams a = new PoliceTeams();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        DefaultTableModel Df = (DefaultTableModel)jTable3.getModel();
+         int selectedIndex = jTable3.getSelectedRow();
+         
+         String user = String.valueOf(Df.getValueAt(selectedIndex, 1).toString());
+         
+       int id= Integer.parseInt(Df.getValueAt(selectedIndex, 0).toString());
+        
+         
+         
+         
+         String situation = (String) txtsit.getSelectedItem();
+         
+         
+         if (txtsit.getSelectedItem().equals("Επιλέξτε Κατάσταση:"))
+         {
+             JOptionPane.showMessageDialog(null,"Λανθασμένα στοιχεία κατάστασης","Η ανανέωση ακυρώθηκε",JOptionPane.ERROR_MESSAGE);
+             
+         }
+         else{
+             
+         
+         
+          try {
+              Class.forName("com.mysql.cj.jdbc.Driver");
+              con=DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
+              pst1=con.prepareStatement("update guest set situation=? where id=?");
+              pst2=con.prepareStatement("update em_citizen set situation=? where username=?");
+              
+               pst1.setString(1, situation);
+               pst1.setInt(2, id);
+               pst1.executeUpdate();
+               
+               
+               pst2.setString(1, situation);
+               pst2.setString(2, user);
+               pst2.executeUpdate();
+             
+      
+              
+              table();
+              
+              JOptionPane.showMessageDialog(this,"Επιτυχής Ανανέωση Κατάστασης","Μήνυμα",JOptionPane.INFORMATION_MESSAGE);
+             
+          
+              
+             
+                   
+        
+                      
+                      
+          } catch (ClassNotFoundException ex) {
+              Logger.getLogger(AdminEdit.class.getName()).log(Level.SEVERE, null, ex);
+          } catch (SQLException ex) {
+              Logger.getLogger(AdminEdit.class.getName()).log(Level.SEVERE, null, ex);
+          }
+                 
+         }  
 
-    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
-        PoliceEdit a = new PoliceEdit();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel10MousePressed
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        DefaultTableModel Df = (DefaultTableModel)jTable3.getModel();
+        int selectedIndex = jTable3.getSelectedRow();
+        
+      txtsit.getSelectedItem().equals(Df.getValueAt(selectedIndex, 6).toString());
+       
+    }//GEN-LAST:event_jTable3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -876,8 +1034,10 @@ public class AdminEdit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton Cancel;
+    private javax.swing.JLabel Exit;
+    private javax.swing.JLabel Logout;
+    private javax.swing.JButton Update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -885,15 +1045,14 @@ public class AdminEdit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable3;
     private javax.swing.JLabel txtdate;
+    private javax.swing.JComboBox<String> txtsit;
     private javax.swing.JLabel txttime;
     // End of variables declaration//GEN-END:variables
 }
