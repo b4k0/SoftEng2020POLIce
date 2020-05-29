@@ -370,7 +370,7 @@ PreparedStatement pst;
             Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/POLIce?useUnicode=yes?&characterEncoding=UTF-8","root","");
             pst=con.prepareStatement("insert into police(policeteam,fullname,username,password,address,tel,policeidcard) values(?,?,?,?,?,?,?)");
-            pst.setString(1,policeteam);
+            pst.setString(1, policeteam);
             pst.setString(2, fullname);
              pst.setString(3, username);
               pst.setString(4, password);
