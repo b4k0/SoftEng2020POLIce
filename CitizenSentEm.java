@@ -89,13 +89,13 @@ PreparedStatement pst;
         txttime = new javax.swing.JLabel();
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txteme = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        SentEm = new javax.swing.JButton();
+        Clean = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
         txtadd = new javax.swing.JTextField();
+        txtem = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -229,57 +229,59 @@ PreparedStatement pst;
         jLabel7.setText("Πάτρα,Ελλάδα");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        txteme.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txteme, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 210, 40));
-
         jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Επείγον Περιστατικό");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Διεύθυνση Περιστατικού");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Αποστολή");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        SentEm.setBackground(new java.awt.Color(0, 51, 255));
+        SentEm.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        SentEm.setForeground(new java.awt.Color(255, 255, 255));
+        SentEm.setText("Αποστολή");
+        SentEm.setBorder(null);
+        SentEm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SentEmActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 120, 40));
+        jPanel1.add(SentEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 120, 40));
 
-        jButton2.setBackground(new java.awt.Color(0, 51, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Καθαρισμός");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Clean.setBackground(new java.awt.Color(0, 51, 255));
+        Clean.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Clean.setForeground(new java.awt.Color(255, 255, 255));
+        Clean.setText("Καθαρισμός");
+        Clean.setBorder(null);
+        Clean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CleanActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 140, 40));
+        jPanel1.add(Clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 140, 40));
 
-        jButton3.setBackground(new java.awt.Color(0, 51, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Ακύρωση");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.setBackground(new java.awt.Color(0, 51, 255));
+        Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        Cancel.setText("Ακύρωση");
+        Cancel.setBorder(null);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 120, 40));
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 120, 40));
 
         txtadd.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, 210, 40));
+        jPanel1.add(txtadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 270, 40));
+
+        txtem.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        txtem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Eπιλέξτε ένα Περιστατικό:", "Διαπλικτισμός", "Δολοφονία", "Ληστεία", "Παράνομες Συναλλαγές", "Τρομοκρατική Ενέργεια", "Τροχαίο", "Υλική Ζημιά" }));
+        txtem.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(txtem, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 270, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -296,18 +298,19 @@ PreparedStatement pst;
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
         
         Citizen a = new Citizen();
         a.setVisible(true);
          this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_CancelActionPerformed
 
     private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
       int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
              b.setVisible(true);
+             this.dispose();
         } else {
 
         }
@@ -323,17 +326,21 @@ PreparedStatement pst;
         }
     }//GEN-LAST:event_jLabel5MousePressed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        txteme.setText("");
+    private void CleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CleanActionPerformed
+        txtem.getSelectedItem().equals("Επιλέξτε ένα Περιστατικό:");
         txtadd.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CleanActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String emergency = txteme.getText();
+    private void SentEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SentEmActionPerformed
+      String Username = LoginPageCitizen.txtuser.getText();
+      String emergency = (String) txtem.getSelectedItem();
       String address = txtadd.getText();
+      String date = txtdate.getText();
+      String time = txttime.getText();
+      String situation="Σε αναμονή";
       
       
-      if(emergency.equals("") || address.equals(""))
+      if(emergency.equals("Επιλέξτε ένα Περιστατικό:") || address.equals(""))
        {
           JOptionPane.showMessageDialog(this,"Το επείγον περιστατικό ή η διεύθυνση είναι κενά","Συμπληρώστε όλα τα πεδία",JOptionPane.INFORMATION_MESSAGE); 
        }
@@ -341,20 +348,24 @@ PreparedStatement pst;
        {
       try {
           Class.forName("com.mysql.cj.jdbc.Driver");
+         
           
           con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
-          pst = con.prepareStatement("insert into user (emergency,address_em) values (?,?)");
-          pst.setString(1, emergency);
-          pst.setString(2, address);
+         
+          pst = con.prepareStatement("insert into em_citizen (username,emergency,address_em,date,time,situation) values (?,?,?,?,?,?)");
+          pst.setString(1, Username);
+          pst.setString(2, emergency);
+          pst.setString(3, address);
+          pst.setString(4, date);
+          pst.setString(5, time);
+          pst.setString(6,situation);
           pst.executeUpdate();
          
           
           
           JOptionPane.showMessageDialog(this,"Επιτυχής Δήλωση Περιστατικού");
          
-         txteme.setText("");
-         txtadd.setText("");
-         txteme.requestFocus();
+         
          
          Citizen a = new Citizen();
          a.setVisible(true);
@@ -368,7 +379,7 @@ PreparedStatement pst;
       }
     } 
       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_SentEmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -533,9 +544,9 @@ PreparedStatement pst;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Cancel;
+    private javax.swing.JButton Clean;
+    private javax.swing.JButton SentEm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -553,7 +564,7 @@ PreparedStatement pst;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtadd;
     private javax.swing.JLabel txtdate;
-    private javax.swing.JTextField txteme;
+    private javax.swing.JComboBox<String> txtem;
     private javax.swing.JLabel txttime;
     // End of variables declaration//GEN-END:variables
 }

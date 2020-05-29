@@ -328,18 +328,6 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="txteme">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Semibold" size="18" style="1"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="630" y="240" width="210" height="40"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -352,7 +340,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="360" y="250" width="-1" height="-1"/>
+              <AbsoluteConstraints x="360" y="260" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -372,7 +360,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="SentEm">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="33" red="0" type="rgb"/>
@@ -389,7 +377,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SentEmActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -397,7 +385,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="Clean">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="33" red="0" type="rgb"/>
@@ -414,7 +402,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CleanActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -422,7 +410,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="Cancel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="33" red="0" type="rgb"/>
@@ -439,7 +427,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -455,7 +443,39 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="630" y="310" width="210" height="40"/>
+              <AbsoluteConstraints x="590" y="310" width="270" height="40"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="txtem">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="18" style="1"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="8">
+                <StringItem index="0" value="E&#x3c0;&#x3b9;&#x3bb;&#x3ad;&#x3be;&#x3c4;&#x3b5; &#x3ad;&#x3bd;&#x3b1; &#x3a0;&#x3b5;&#x3c1;&#x3b9;&#x3c3;&#x3c4;&#x3b1;&#x3c4;&#x3b9;&#x3ba;&#x3cc;:"/>
+                <StringItem index="1" value="&#x394;&#x3b9;&#x3b1;&#x3c0;&#x3bb;&#x3b9;&#x3ba;&#x3c4;&#x3b9;&#x3c3;&#x3bc;&#x3cc;&#x3c2;"/>
+                <StringItem index="2" value="&#x394;&#x3bf;&#x3bb;&#x3bf;&#x3c6;&#x3bf;&#x3bd;&#x3af;&#x3b1;"/>
+                <StringItem index="3" value="&#x39b;&#x3b7;&#x3c3;&#x3c4;&#x3b5;&#x3af;&#x3b1;"/>
+                <StringItem index="4" value="&#x3a0;&#x3b1;&#x3c1;&#x3ac;&#x3bd;&#x3bf;&#x3bc;&#x3b5;&#x3c2; &#x3a3;&#x3c5;&#x3bd;&#x3b1;&#x3bb;&#x3bb;&#x3b1;&#x3b3;&#x3ad;&#x3c2;"/>
+                <StringItem index="5" value="&#x3a4;&#x3c1;&#x3bf;&#x3bc;&#x3bf;&#x3ba;&#x3c1;&#x3b1;&#x3c4;&#x3b9;&#x3ba;&#x3ae; &#x395;&#x3bd;&#x3ad;&#x3c1;&#x3b3;&#x3b5;&#x3b9;&#x3b1;"/>
+                <StringItem index="6" value="&#x3a4;&#x3c1;&#x3bf;&#x3c7;&#x3b1;&#x3af;&#x3bf;"/>
+                <StringItem index="7" value="&#x3a5;&#x3bb;&#x3b9;&#x3ba;&#x3ae; &#x396;&#x3b7;&#x3bc;&#x3b9;&#x3ac;"/>
+              </StringArray>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="590" y="250" width="270" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
