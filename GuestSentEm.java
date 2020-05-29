@@ -314,6 +314,7 @@ public class GuestSentEm extends javax.swing.JFrame {
       String address = txtadd.getText();
       String cdate= txtdate.getText();
       String ctime=txttime.getText();
+      String situation="Σε αναμονή";
       
       
       
@@ -327,11 +328,13 @@ public class GuestSentEm extends javax.swing.JFrame {
           Class.forName("com.mysql.cj.jdbc.Driver");
           
           con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
-          pst = con.prepareStatement("insert into guest (emergency,address_em,date,time) values (?,?,?,?)");
+          pst = con.prepareStatement("insert into guest (emergency,address_em,date,time,situation) values (?,?,?,?,?)");
           pst.setString(1, emergency);
           pst.setString(2, address);
           pst.setString(3, cdate);
           pst.setString(4,ctime);
+          pst.setString(5,situation);
+          
           
           
           pst.executeUpdate();
