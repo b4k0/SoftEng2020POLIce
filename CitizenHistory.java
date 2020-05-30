@@ -7,17 +7,29 @@ package police;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author user
  */
 public class CitizenHistory extends javax.swing.JFrame {
-
+      Connection con;
+      PreparedStatement pst;
+      ResultSet rs;
     /**
      * Creates new form LoginPage
      */
@@ -25,12 +37,80 @@ public class CitizenHistory extends javax.swing.JFrame {
         initComponents();
         showDate();
         showTime();
+        historycitizen();     
+        }
+    
+    private void historycitizen()    {
+        
+      
+        String username= "mpak";
+        String situation= "Ολοκληρωμένο";
+          try {
+              Class.forName("com.mysql.cj.jdbc.Driver");
+              con=DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
+              pst=con.prepareStatement("select * from em_citizen where username=? and situation=?");
+              pst.setString(1, username);
+              pst.setString(2, situation);
+              rs=pst.executeQuery();
               
-        
-
+            
+           
+              DefaultTableModel Df = (DefaultTableModel)HistoryCitizen.getModel();
+              Df.setRowCount(0);
+              
+              
+              while(rs.next())
+              {
+                  Vector v2 = new Vector();
+               
+               for(int a=1; a<=8; a++)
+               {
+                   v2.add(rs.getString("id")); 
+                   v2.add(rs.getString("username"));
+                    v2.add(rs.getString("emergency"));
+                     v2.add(rs.getString("address_em"));
+                      
+                       v2.add(rs.getString("date"));
+                        v2.add(rs.getString("time"));
+                         v2.add(rs.getString("situation"));
+                         
+               }
+               
+               
+                Df.addRow(v2);
+                  
+                  
+              }
+          
+          
+          
+         
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          } catch (ClassNotFoundException ex) {
+              Logger.getLogger(CitizenHistory.class.getName()).log(Level.SEVERE, null, ex);
+          } catch (SQLException ex) {
+              Logger.getLogger(CitizenHistory.class.getName()).log(Level.SEVERE, null, ex);
+          }
     }
-    
-    
         
 
     
@@ -43,14 +123,14 @@ public class CitizenHistory extends javax.swing.JFrame {
 
     
 
-void showDate() {  //Ημερομηνία
+void showDate() {
         Date d = new Date();
         SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
         txtdate.setText(s.format(d));
 
     }
 
-    void showTime() { //Ώρα
+    void showTime() {
         new Timer(0, new ActionListener() {
 
             @Override
@@ -77,7 +157,7 @@ void showDate() {  //Ημερομηνία
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        ExitCitizen = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -87,9 +167,9 @@ void showDate() {  //Ημερομηνία
         txttime = new javax.swing.JLabel();
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        HistoryCitizen = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -119,13 +199,13 @@ void showDate() {  //Ημερομηνία
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        jLabel8.setText("Aποσύνδεση");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        ExitCitizen.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ExitCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        ExitCitizen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        ExitCitizen.setText("Aποσύνδεση");
+        ExitCitizen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+                ExitCitizenMousePressed(evt);
             }
         });
 
@@ -159,7 +239,7 @@ void showDate() {  //Ημερομηνία
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
-                            .addComponent(jLabel8)))
+                            .addComponent(ExitCitizen)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -177,7 +257,7 @@ void showDate() {  //Ημερομηνία
                 .addGap(67, 67, 67)
                 .addComponent(jLabel15)
                 .addGap(49, 49, 49)
-                .addComponent(jLabel8)
+                .addComponent(ExitCitizen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(41, 41, 41))
@@ -223,46 +303,47 @@ void showDate() {  //Ημερομηνία
         jLabel7.setText("Πάτρα,Ελλάδα");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 51, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Ακύρωση");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.setBackground(new java.awt.Color(0, 51, 255));
+        Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        Cancel.setText("Ακύρωση");
+        Cancel.setBorder(null);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 120, 40));
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 120, 40));
 
-        jTable1.setBackground(new java.awt.Color(0, 51, 255));
-        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        HistoryCitizen.setBackground(new java.awt.Color(0, 51, 255));
+        HistoryCitizen.setFont(new java.awt.Font("Segoe UI Black", 1, 8)); // NOI18N
+        HistoryCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        HistoryCitizen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "id", "name", "surname", "peristatiko", "address"
+                "id", "username", "Περιστατικό", "Διεύθυνση", "Ημερομηνία", "Ώρα", "Κατάσταση"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false, false, false, false
+            };
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 480, 200));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(HistoryCitizen);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 560, 190));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -279,15 +360,15 @@ void showDate() {  //Ημερομηνία
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
        
         Citizen a = new Citizen();
         a.setVisible(true);
          this.dispose();
        
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_CancelActionPerformed
 
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+    private void ExitCitizenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitCitizenMousePressed
          int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -296,7 +377,7 @@ void showDate() {  //Ημερομηνία
         } else {
 
         }
-    }//GEN-LAST:event_jLabel8MousePressed
+    }//GEN-LAST:event_ExitCitizenMousePressed
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -598,7 +679,9 @@ void showDate() {  //Ημερομηνία
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Cancel;
+    private javax.swing.JLabel ExitCitizen;
+    private javax.swing.JTable HistoryCitizen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -609,11 +692,9 @@ void showDate() {  //Ημερομηνία
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel txtdate;
     private javax.swing.JLabel txttime;
     // End of variables declaration//GEN-END:variables
