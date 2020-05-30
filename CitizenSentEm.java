@@ -79,7 +79,7 @@ PreparedStatement pst;
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        ExitCitizen = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -125,13 +125,13 @@ PreparedStatement pst;
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        jLabel8.setText("Aποσύνδεση");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        ExitCitizen.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ExitCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        ExitCitizen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        ExitCitizen.setText("Aποσύνδεση");
+        ExitCitizen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+                ExitCitizenMousePressed(evt);
             }
         });
 
@@ -168,7 +168,7 @@ PreparedStatement pst;
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel8))))
+                            .addComponent(ExitCitizen))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -183,7 +183,7 @@ PreparedStatement pst;
                 .addGap(75, 75, 75)
                 .addComponent(jLabel9)
                 .addGap(55, 55, 55)
-                .addComponent(jLabel8)
+                .addComponent(ExitCitizen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(41, 41, 41))
@@ -305,7 +305,7 @@ PreparedStatement pst;
          this.dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+    private void ExitCitizenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitCitizenMousePressed
       int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -315,7 +315,7 @@ PreparedStatement pst;
 
         }
 
-    }//GEN-LAST:event_jLabel8MousePressed
+    }//GEN-LAST:event_ExitCitizenMousePressed
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -342,7 +342,7 @@ PreparedStatement pst;
       
       if(emergency.equals("Επιλέξτε ένα Περιστατικό:") || address.equals(""))
        {
-          JOptionPane.showMessageDialog(this,"Το επείγον περιστατικό ή η διεύθυνση είναι κενά","Συμπληρώστε όλα τα πεδία",JOptionPane.INFORMATION_MESSAGE); 
+          JOptionPane.showMessageDialog(this,"Το επείγον περιστατικό ή η διεύθυνση περιστατικού είναι κενά","Συμπληρώστε όλα τα πεδία",JOptionPane.ERROR_MESSAGE); 
        }
        else
        {
@@ -363,7 +363,7 @@ PreparedStatement pst;
          
           
           
-          JOptionPane.showMessageDialog(this,"Επιτυχής Δήλωση Περιστατικού");
+          JOptionPane.showMessageDialog(this,"Επιτυχής δήλωση περιστατικού");
          
          
          
@@ -546,6 +546,7 @@ PreparedStatement pst;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
     private javax.swing.JButton Clean;
+    private javax.swing.JLabel ExitCitizen;
     private javax.swing.JButton SentEm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -558,7 +559,6 @@ PreparedStatement pst;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
