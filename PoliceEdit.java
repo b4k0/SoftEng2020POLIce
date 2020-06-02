@@ -8,9 +8,15 @@ package police;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JLabel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -19,7 +25,9 @@ import javax.swing.Timer;
  * @author user
  */
 public class PoliceEdit extends javax.swing.JFrame {
-      
+      Connection con;
+      ResultSet rs;
+      PreparedStatement pst;
     /**
      * Creates new form LoginPage
      */
@@ -27,11 +35,62 @@ public class PoliceEdit extends javax.swing.JFrame {
         initComponents();
         showDate();
         showTime();
-        
+        PoliceEdit();
         
 
     }
     
+      private void PoliceEdit()
+    {
+        String user=LoginPagePolice.txtuser.getText();
+       
+  
+        
+        
+        try {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                
+                 con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
+                 pst=con.prepareStatement("select * from police where username=? ");
+                 pst.setString(1, user);
+              
+            
+                 rs=pst.executeQuery();
+            
+            while(rs.next())
+            {
+              txtteam.setText(rs.getString("policeteam"));
+              txtuser.setText(rs.getString("username")) ;
+              txtfull.setText(rs.getString("fullname")) ;
+              txtpass.setText(rs.getString("password")) ;
+              txtadd.setText(rs.getString("address")) ;
+              txttel.setText(rs.getString("tel")) ;
+              txtid.setText(rs.getString("policeidcard")) ;
+             
+               
+                
+                
+             
+            }
+                
+                txtpass.requestFocus();
+                
+                
+                
+                
+                
+                
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PoliceEdit.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+            
+        } catch (SQLException ex) {
+              Logger.getLogger(PoliceEdit.class.getName()).log(Level.SEVERE, null, ex);
+          }
+    }
+                    
      
     
     void showDate() {
@@ -67,8 +126,8 @@ public class PoliceEdit extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
+        Logout = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -85,14 +144,17 @@ public class PoliceEdit extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField3 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        txtid = new javax.swing.JTextField();
+        txtuser = new javax.swing.JTextField();
+        txtfull = new javax.swing.JTextField();
+        Cancel = new javax.swing.JButton();
+        PoliceEdit = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtpass = new javax.swing.JTextField();
+        txtadd = new javax.swing.JTextField();
+        txttel = new javax.swing.JTextField();
+        txtteam = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -112,23 +174,23 @@ public class PoliceEdit extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel5.setText("Έξοδος");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
+        Exit.setText("Έξοδος");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                ExitMousePressed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        jLabel8.setText("Aποσύνδεση");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        Logout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Logout.setForeground(new java.awt.Color(255, 255, 255));
+        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        Logout.setText("Aποσύνδεση");
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+                LogoutMousePressed(evt);
             }
         });
 
@@ -136,11 +198,6 @@ public class PoliceEdit extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_edit_30px.png"))); // NOI18N
         jLabel10.setText("Eπεξεργασία Στοιχείων");
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel10MousePressed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,11 +221,11 @@ public class PoliceEdit extends javax.swing.JFrame {
                                 .addComponent(jLabel2))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(jLabel5))
+                        .addComponent(Exit))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
+                            .addComponent(Logout)
                             .addComponent(jLabel10))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -184,9 +241,9 @@ public class PoliceEdit extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addComponent(jLabel10)
                 .addGap(43, 43, 43)
-                .addComponent(jLabel8)
+                .addComponent(Logout)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addGap(41, 41, 41))
         );
 
@@ -195,7 +252,7 @@ public class PoliceEdit extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("POLIce");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 149, 50));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 149, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,7 +267,7 @@ public class PoliceEdit extends javax.swing.JFrame {
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(817, 494, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_60px.png"))); // NOI18N
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, -1, -1));
 
         txttime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txttime.setForeground(new java.awt.Color(255, 255, 255));
@@ -233,79 +290,92 @@ public class PoliceEdit extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Ονοματεπώνυμο");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Όνομα Χρήστη");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Κωδικός");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Διεύθυνση");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Τηλέφωνο");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 80, 20));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 80, 20));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Αριθμός Ταυτότητας ");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 140, 20));
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 140, 20));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Αστυνομίας");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 80, 20));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 80, 20));
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 210, 30));
+        txtid.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 270, 30));
 
-        jPasswordField3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 210, 30));
+        txtuser.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jPanel1.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 270, 30));
 
-        jPasswordField2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 210, 30));
+        txtfull.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jPanel1.add(txtfull, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 270, 30));
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 210, 30));
-
-        jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 210, 30));
-
-        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 210, 30));
-
-        jButton3.setBackground(new java.awt.Color(0, 51, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Ακύρωση");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.setBackground(new java.awt.Color(0, 51, 255));
+        Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        Cancel.setText("Ακύρωση");
+        Cancel.setBorder(null);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 150, 40));
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 150, 40));
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Επεξεργασία");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        PoliceEdit.setBackground(new java.awt.Color(0, 51, 255));
+        PoliceEdit.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        PoliceEdit.setForeground(new java.awt.Color(255, 255, 255));
+        PoliceEdit.setText("Επεξεργασία");
+        PoliceEdit.setBorder(null);
+        PoliceEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                PoliceEditActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 150, 40));
+        jPanel1.add(PoliceEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, 150, 40));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Αστυνομική");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 80, 20));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Ομάδα");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 50, 20));
+
+        txtpass.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 270, 30));
+
+        txtadd.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jPanel1.add(txtadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 270, 30));
+
+        txttel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jPanel1.add(txttel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 270, 30));
+
+        txtteam.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jPanel1.add(txtteam, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 270, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -322,44 +392,66 @@ public class PoliceEdit extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
-       int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    private void PoliceEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PoliceEditActionPerformed
+         String user=LoginPagePolice.txtuser.getText();
+        String password= txtpass.getText();
+          String address= txtadd.getText();
+          String tel= txttel.getText();
+        
+        try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+         con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
+         pst=con.prepareStatement("update police set password=?,address=?,tel=? where username=?");
+         
+          pst.setString(1,password );
+           pst.setString(2,address );
+            pst.setString(3,tel );
+             pst.setString(4, user );
+             
+         pst.executeUpdate();
+         
+         JOptionPane.showMessageDialog(this,"Επιτυχής Επεξεργασία Στοιχείων");
+         
+        Police a = new Police();
+         a.setVisible(true);
+         this.dispose();
+         
+         
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(CitizenEdit.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (SQLException ex) {
+        Logger.getLogger(CitizenEdit.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+                            
+    }//GEN-LAST:event_PoliceEditActionPerformed
+
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+        Police a = new Police();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CancelActionPerformed
+
+    private void LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMousePressed
+        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
-             LoginPage b = new  LoginPage();
-             b.setVisible(true);
-              this.dispose();
+            LoginPage b = new  LoginPage();
+            b.setVisible(true);
+            this.dispose();
         } else {
 
         }
-        
-        
-        
-        
-       
-    }//GEN-LAST:event_jLabel8MousePressed
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    }//GEN-LAST:event_LogoutMousePressed
+
+    private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
         } else {
 
         }
-    }//GEN-LAST:event_jLabel5MousePressed
-
-    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
-
-    }//GEN-LAST:event_jLabel10MousePressed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         Police a = new Police();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ExitMousePressed
 
     /**
      * @param args the command line arguments
@@ -524,8 +616,10 @@ public class PoliceEdit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Cancel;
+    private javax.swing.JLabel Exit;
+    private javax.swing.JLabel Logout;
+    private javax.swing.JButton PoliceEdit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -539,20 +633,21 @@ public class PoliceEdit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JPasswordField jPasswordField3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtadd;
     private javax.swing.JLabel txtdate;
+    private javax.swing.JTextField txtfull;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtpass;
+    private javax.swing.JTextField txtteam;
+    private javax.swing.JTextField txttel;
     private javax.swing.JLabel txttime;
+    private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }
