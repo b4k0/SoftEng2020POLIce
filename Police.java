@@ -67,13 +67,13 @@ public class Police extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
+        Logout = new javax.swing.JLabel();
+        PoliceNewEm = new javax.swing.JLabel();
+        PoliceEdit = new javax.swing.JLabel();
+        PoliceHistory = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        PoliceCall = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -101,53 +101,53 @@ public class Police extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel5.setText("Έξοδος");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
+        Exit.setText("Έξοδος");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                ExitMousePressed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        jLabel8.setText("Aποσύνδεση");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        Logout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Logout.setForeground(new java.awt.Color(255, 255, 255));
+        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        Logout.setText("Aποσύνδεση");
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+                LogoutMousePressed(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_notification_center_30px.png"))); // NOI18N
-        jLabel9.setText("Νέα Περιστατικά");
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        PoliceNewEm.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        PoliceNewEm.setForeground(new java.awt.Color(255, 255, 255));
+        PoliceNewEm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_notification_center_30px.png"))); // NOI18N
+        PoliceNewEm.setText("Νέα Περιστατικά");
+        PoliceNewEm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel9MousePressed(evt);
+                PoliceNewEmMousePressed(evt);
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_edit_30px.png"))); // NOI18N
-        jLabel10.setText("Eπεξεργασία Στοιχείων");
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        PoliceEdit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        PoliceEdit.setForeground(new java.awt.Color(255, 255, 255));
+        PoliceEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_edit_30px.png"))); // NOI18N
+        PoliceEdit.setText("Eπεξεργασία Στοιχείων");
+        PoliceEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel10MousePressed(evt);
+                PoliceEditMousePressed(evt);
             }
         });
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_folder_30px.png"))); // NOI18N
-        jLabel15.setText("Ιστορικό Περιστατικών");
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+        PoliceHistory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        PoliceHistory.setForeground(new java.awt.Color(255, 255, 255));
+        PoliceHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_folder_30px.png"))); // NOI18N
+        PoliceHistory.setText("Ιστορικό Περιστατικών");
+        PoliceHistory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel15MousePressed(evt);
+                PoliceHistoryMousePressed(evt);
             }
         });
 
@@ -155,13 +155,13 @@ public class Police extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_40px.png"))); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_iphone_30px.png"))); // NOI18N
-        jLabel16.setText("Επικοινωνία με Πολίτη");
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+        PoliceCall.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        PoliceCall.setForeground(new java.awt.Color(255, 255, 255));
+        PoliceCall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_iphone_30px.png"))); // NOI18N
+        PoliceCall.setText("Επικοινωνία με Πολίτη");
+        PoliceCall.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel16MousePressed(evt);
+                PoliceCallMousePressed(evt);
             }
         });
 
@@ -183,18 +183,18 @@ public class Police extends javax.swing.JFrame {
                                 .addComponent(jLabel2))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(jLabel5))
+                        .addComponent(Exit))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel10)))
+                            .addComponent(PoliceCall)
+                            .addComponent(Logout)
+                            .addComponent(PoliceEdit)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel9))))
+                            .addComponent(PoliceHistory)
+                            .addComponent(PoliceNewEm))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -207,17 +207,17 @@ public class Police extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9)
+                .addComponent(PoliceNewEm)
                 .addGap(32, 32, 32)
-                .addComponent(jLabel15)
+                .addComponent(PoliceHistory)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel10)
+                .addComponent(PoliceEdit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jLabel16)
+                .addComponent(PoliceCall)
                 .addGap(28, 28, 28)
-                .addComponent(jLabel8)
+                .addComponent(Logout)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addGap(41, 41, 41))
         );
 
@@ -282,29 +282,29 @@ public class Police extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MousePressed
+    private void PoliceHistoryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoliceHistoryMousePressed
        
        PoliceHistory a = new PoliceHistory();
         a.setVisible(true);
         this.dispose();
        
-    }//GEN-LAST:event_jLabel15MousePressed
+    }//GEN-LAST:event_PoliceHistoryMousePressed
 
-    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+    private void PoliceEditMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoliceEditMousePressed
         PoliceEdit a = new PoliceEdit();
         a.setVisible(true);
         this.dispose();
         
       
-    }//GEN-LAST:event_jLabel10MousePressed
+    }//GEN-LAST:event_PoliceEditMousePressed
 
-    private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
+    private void PoliceNewEmMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoliceNewEmMousePressed
         PoliceNewEm a = new PoliceNewEm();
         a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel9MousePressed
+    }//GEN-LAST:event_PoliceNewEmMousePressed
 
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+    private void LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMousePressed
        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -318,22 +318,22 @@ public class Police extends javax.swing.JFrame {
         
         
        
-    }//GEN-LAST:event_jLabel8MousePressed
+    }//GEN-LAST:event_LogoutMousePressed
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
         } else {
 
         }
-    }//GEN-LAST:event_jLabel5MousePressed
+    }//GEN-LAST:event_ExitMousePressed
 
-    private void jLabel16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MousePressed
+    private void PoliceCallMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoliceCallMousePressed
      CallCitizen a = new CallCitizen();
         a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel16MousePressed
+    }//GEN-LAST:event_PoliceCallMousePressed
 
     /**
      * @param args the command line arguments
@@ -626,21 +626,21 @@ public class Police extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Exit;
+    private javax.swing.JLabel Logout;
+    private javax.swing.JLabel PoliceCall;
+    private javax.swing.JLabel PoliceEdit;
+    private javax.swing.JLabel PoliceHistory;
+    private javax.swing.JLabel PoliceNewEm;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel txtdate;
