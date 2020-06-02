@@ -144,9 +144,6 @@ public class PoliceEdit extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        txtid = new javax.swing.JTextField();
-        txtuser = new javax.swing.JTextField();
-        txtfull = new javax.swing.JTextField();
         Cancel = new javax.swing.JButton();
         PoliceEdit = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
@@ -154,7 +151,10 @@ public class PoliceEdit extends javax.swing.JFrame {
         txtpass = new javax.swing.JTextField();
         txtadd = new javax.swing.JTextField();
         txttel = new javax.swing.JTextField();
-        txtteam = new javax.swing.JTextField();
+        txtfull = new javax.swing.JLabel();
+        txtuser = new javax.swing.JLabel();
+        txtid = new javax.swing.JLabel();
+        txtteam = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -322,15 +322,6 @@ public class PoliceEdit extends javax.swing.JFrame {
         jLabel22.setText("Αστυνομίας");
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 80, 20));
 
-        txtid.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 270, 30));
-
-        txtuser.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 270, 30));
-
-        txtfull.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtfull, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 270, 30));
-
         Cancel.setBackground(new java.awt.Color(0, 51, 255));
         Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         Cancel.setForeground(new java.awt.Color(255, 255, 255));
@@ -374,7 +365,24 @@ public class PoliceEdit extends javax.swing.JFrame {
         txttel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         jPanel1.add(txttel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 270, 30));
 
+        txtfull.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        txtfull.setForeground(new java.awt.Color(0, 51, 255));
+        txtfull.setText(" ");
+        jPanel1.add(txtfull, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 270, 30));
+
+        txtuser.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        txtuser.setForeground(new java.awt.Color(0, 51, 255));
+        txtuser.setText(" ");
+        jPanel1.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 270, 30));
+
+        txtid.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        txtid.setForeground(new java.awt.Color(0, 51, 255));
+        txtid.setText(" ");
+        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 270, 30));
+
         txtteam.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        txtteam.setForeground(new java.awt.Color(0, 51, 255));
+        txtteam.setText(" ");
         jPanel1.add(txtteam, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 270, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -642,12 +650,12 @@ public class PoliceEdit extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtadd;
     private javax.swing.JLabel txtdate;
-    private javax.swing.JTextField txtfull;
-    private javax.swing.JTextField txtid;
+    private javax.swing.JLabel txtfull;
+    private javax.swing.JLabel txtid;
     private javax.swing.JTextField txtpass;
-    private javax.swing.JTextField txtteam;
+    private javax.swing.JLabel txtteam;
     private javax.swing.JTextField txttel;
     private javax.swing.JLabel txttime;
-    private javax.swing.JTextField txtuser;
+    private javax.swing.JLabel txtuser;
     // End of variables declaration//GEN-END:variables
 }
