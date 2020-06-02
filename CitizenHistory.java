@@ -44,13 +44,12 @@ public class CitizenHistory extends javax.swing.JFrame {
         
       
         String username= "mpak";
-        String situation= "Ολοκληρωμένο";
+       
           try {
               Class.forName("com.mysql.cj.jdbc.Driver");
               con=DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
-              pst=con.prepareStatement("select * from em_citizen where username=? and situation=?");
+              pst=con.prepareStatement("select * from em_citizen where username=?");
               pst.setString(1, username);
-              pst.setString(2, situation);
               rs=pst.executeQuery();
               
             
