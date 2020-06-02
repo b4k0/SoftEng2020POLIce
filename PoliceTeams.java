@@ -135,25 +135,10 @@ public class PoliceTeams extends javax.swing.JFrame {
         txttime = new javax.swing.JLabel();
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        txttime1 = new javax.swing.JLabel();
-        txtdate1 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        Cancel = new javax.swing.JButton();
-        SelectPoliceTeam = new javax.swing.JButton();
         txtteam = new javax.swing.JComboBox<>();
         txtpolice = new javax.swing.JComboBox<>();
+        Cancel = new javax.swing.JButton();
+        SelectPoliceTeam = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -287,118 +272,19 @@ public class PoliceTeams extends javax.swing.JFrame {
         jLabel7.setText("Πάτρα,Ελλάδα");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        txtteam.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtteam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Επιλέξτε Αστυνομική Ομάδα:" }));
+        txtteam.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtteam.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                txtteamItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(txtteam, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 220, 30));
 
-        jPanel4.setBackground(new java.awt.Color(0, 51, 255));
-
-        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("POLIce");
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel10.setText("Έξοδος");
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        jLabel11.setText("Aποσύνδεση");
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_todo_list_30px_1.png"))); // NOI18N
-        jLabel16.setText("Επιλογή Αστυνομικής Ομάδας");
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_user_30px.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel9))
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel11)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addGap(86, 86, 86)
-                .addComponent(jLabel16)
-                .addGap(58, 58, 58)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(41, 41, 41))
-        );
-
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 290, 530));
-
-        jLabel18.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 36)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("POLIce");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 149, 50));
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_copyright_10px_1.png"))); // NOI18N
-        jLabel19.setText("POLIce Development Team");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 494, -1, -1));
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_versions_10px_1.png"))); // NOI18N
-        jLabel20.setText("v1.0");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(817, 494, -1, -1));
-
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_60px.png"))); // NOI18N
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
-
-        txttime1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txttime1.setForeground(new java.awt.Color(255, 255, 255));
-        txttime1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_watch_20px.png"))); // NOI18N
-        txttime1.setText("Ώρα");
-        jPanel3.add(txttime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 130, -1));
-
-        txtdate1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtdate1.setForeground(new java.awt.Color(255, 255, 255));
-        txtdate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_calendar_20px.png"))); // NOI18N
-        txtdate1.setText("Ημερομηνία");
-        jPanel3.add(txtdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
-
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_marker_20px.png"))); // NOI18N
-        jLabel22.setText("Πάτρα,Ελλάδα");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
+        txtpolice.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtpolice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Επιλέξτε Αστυνομικό:" }));
+        jPanel1.add(txtpolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 220, 30));
 
         Cancel.setBackground(new java.awt.Color(0, 51, 255));
         Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -411,7 +297,7 @@ public class PoliceTeams extends javax.swing.JFrame {
                 CancelActionPerformed(evt);
             }
         });
-        jPanel3.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 150, 40));
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 150, 40));
 
         SelectPoliceTeam.setBackground(new java.awt.Color(0, 51, 255));
         SelectPoliceTeam.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -424,23 +310,7 @@ public class PoliceTeams extends javax.swing.JFrame {
                 SelectPoliceTeamActionPerformed(evt);
             }
         });
-        jPanel3.add(SelectPoliceTeam, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 150, 40));
-
-        txtteam.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        txtteam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Επιλέξτε Αστυνομική Ομάδα:" }));
-        txtteam.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtteam.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                txtteamItemStateChanged(evt);
-            }
-        });
-        jPanel3.add(txtteam, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 220, 30));
-
-        txtpolice.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        txtpolice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Επιλέξτε Αστυνομικό:" }));
-        jPanel3.add(txtpolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 220, 30));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(SelectPoliceTeam, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -450,7 +320,9 @@ public class PoliceTeams extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -458,7 +330,7 @@ public class PoliceTeams extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMousePressed
-       int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+       int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
              b.setVisible(true);
@@ -474,7 +346,7 @@ public class PoliceTeams extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutMousePressed
 
     private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
-        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
         } else {
@@ -493,17 +365,20 @@ public class PoliceTeams extends javax.swing.JFrame {
          int id= Integer.parseInt(Df.getValueAt(selectedIndex, 0).toString());
          String police= (String) txtpolice.getSelectedItem();
          String policeteam=(String) txtteam.getSelectedItem();
+         String situation = "Απεσταλμένο";
          
           try {
               Class.forName("com.mysql.cj.jdbc.Driver");
               con=DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
-             AdminNewEm.pst1=con.prepareStatement("insert into call_police (id,username,emergency,address,police,policeteam) values(?,?,?,?,?,?)");
+             AdminNewEm.pst1=con.prepareStatement("insert into call_police (id,username,emergency,address,police,policeteam,situation) values(?,?,?,?,?,?,?)");
              AdminNewEm.pst1.setInt(1, id);
              AdminNewEm.pst1.setString(2, username);
              AdminNewEm.pst1.setString(3, emergency);
               AdminNewEm.pst1.setString(4, address_em);
               AdminNewEm.pst1.setString(5, police);
               AdminNewEm.pst1.setString(6, policeteam);
+              AdminNewEm.pst1.setString(7, situation);
+              
               AdminNewEm.pst1.executeUpdate();
             
       
@@ -873,34 +748,19 @@ public class PoliceTeams extends javax.swing.JFrame {
     private javax.swing.JLabel Logout;
     private javax.swing.JButton SelectPoliceTeam;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel txtdate;
-    private javax.swing.JLabel txtdate1;
     private javax.swing.JComboBox<String> txtpolice;
     private javax.swing.JComboBox<String> txtteam;
     private javax.swing.JLabel txttime;
-    private javax.swing.JLabel txttime1;
     // End of variables declaration//GEN-END:variables
 }
