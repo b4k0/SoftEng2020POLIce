@@ -285,7 +285,7 @@ public class LoginPageAdmin extends javax.swing.JFrame {
        String password = txtpass.getText();
        if(username.equals("") || password.equals(""))
        {
-          JOptionPane.showMessageDialog(this,"Το όνομα χρήστη ή ο κωδικός είναι κενά","Συμπληρώστε ξανά τα στοιχεία σας",JOptionPane.INFORMATION_MESSAGE); 
+          JOptionPane.showMessageDialog(this,"Ο κωδικός ή το όνομα χρήστη είναι κενά","Συμπληρώστε ξανά τα στοιχεία σας",JOptionPane.INFORMATION_MESSAGE); 
        }
        else
        {
@@ -299,14 +299,14 @@ public class LoginPageAdmin extends javax.swing.JFrame {
           
           if (rs.next())
           {
-              JOptionPane.showMessageDialog(this,"Συνδεθήκατε επιτυχώς","Σύνδεση",JOptionPane.INFORMATION_MESSAGE);
+              JOptionPane.showMessageDialog(this,"Επιτυχής σύνδεση","Σύνδεση",JOptionPane.INFORMATION_MESSAGE);
               Admin b = new Admin();
               b.setVisible(true);
               this.dispose();
           }
           else
           {
-             JOptionPane.showMessageDialog(this,"Το όνομα χρήστη ή ο κωδικός είναι λαμθασμένα","Aποτυχία Σύνδεσης",JOptionPane.ERROR_MESSAGE); 
+             JOptionPane.showMessageDialog(this,"Ο κωδικός ή το όνομα χρήστη είναι λάθος","Aποτυχία Σύνδεσης",JOptionPane.ERROR_MESSAGE); 
              txtuser.setText("");
              txtpass.setText("");
           }
