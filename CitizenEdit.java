@@ -142,19 +142,19 @@ ResultSet rs;
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        txtfull = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        txtuser = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         Cancel = new javax.swing.JButton();
         UpdateCitizen = new javax.swing.JButton();
-        txtid = new javax.swing.JTextField();
         txtpass = new javax.swing.JTextField();
         txttel = new javax.swing.JTextField();
         txtadd = new javax.swing.JTextField();
+        txtfull = new javax.swing.JLabel();
+        txtuser = new javax.swing.JLabel();
+        txtid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -293,16 +293,10 @@ ResultSet rs;
         jLabel16.setText("Ονοματεπώνυμο");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
 
-        txtfull.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtfull, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 210, 30));
-
         jLabel19.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Όνομα Χρήστη");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
-
-        txtuser.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 210, 30));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -346,17 +340,29 @@ ResultSet rs;
         });
         jPanel1.add(UpdateCitizen, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, 160, 40));
 
-        txtid.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 210, 30));
-
         txtpass.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 210, 30));
+        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 240, 30));
 
         txttel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txttel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 210, 30));
+        jPanel1.add(txttel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 240, 30));
 
         txtadd.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jPanel1.add(txtadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 210, 30));
+        jPanel1.add(txtadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 240, 30));
+
+        txtfull.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        txtfull.setForeground(new java.awt.Color(0, 102, 255));
+        txtfull.setText(" ");
+        jPanel1.add(txtfull, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 240, -1));
+
+        txtuser.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        txtuser.setForeground(new java.awt.Color(0, 102, 255));
+        txtuser.setText(" ");
+        jPanel1.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 215, 240, -1));
+
+        txtid.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        txtid.setForeground(new java.awt.Color(0, 102, 255));
+        txtid.setText(" ");
+        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 240, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -748,11 +754,11 @@ ResultSet rs;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtadd;
     private javax.swing.JLabel txtdate;
-    private javax.swing.JTextField txtfull;
-    private javax.swing.JTextField txtid;
+    private javax.swing.JLabel txtfull;
+    private javax.swing.JLabel txtid;
     private javax.swing.JTextField txtpass;
     private javax.swing.JTextField txttel;
     private javax.swing.JLabel txttime;
-    private javax.swing.JTextField txtuser;
+    private javax.swing.JLabel txtuser;
     // End of variables declaration//GEN-END:variables
 }
