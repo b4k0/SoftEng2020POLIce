@@ -285,7 +285,7 @@ ResultSet rs;
        String password = txtpass.getText();
        if(username.equals("") || password.equals(""))
        {
-          JOptionPane.showMessageDialog(this,"Το όνομα χρήστη ή ο κωδικός είναι κενά","Συμπληρώστε ξανά τα στοιχεία σας",JOptionPane.INFORMATION_MESSAGE); 
+          JOptionPane.showMessageDialog(this,"Ο κωδικός ή το όνομα χρήστη είναι κενά","Συμπληρώστε ξανά τα στοιχεία σας",JOptionPane.INFORMATION_MESSAGE); 
        }
        else
        {
@@ -299,14 +299,14 @@ ResultSet rs;
           
           if (rs.next())
           {
-              JOptionPane.showMessageDialog(this,"Συνδεθήκατε επιτυχώς","Σύνδεση",JOptionPane.INFORMATION_MESSAGE);
+              JOptionPane.showMessageDialog(this,"Επιτυχής σύνδεση","Σύνδεση",JOptionPane.INFORMATION_MESSAGE);
                Police a = new Police();
                a.setVisible(true);
                this.dispose();
           }
           else
           {
-             JOptionPane.showMessageDialog(this,"Το όνομα χρήστη ή ο κωδικός είναι λαμθασμένα","Aποτυχία Σύνδεσης",JOptionPane.ERROR_MESSAGE); 
+             JOptionPane.showMessageDialog(this,"Ο κωδικός ή το όνομα χρήστη είναι λάθος","Aποτυχία Σύνδεσης",JOptionPane.ERROR_MESSAGE); 
               txtuser.setText("");
              txtpass.setText("");
           }
@@ -415,6 +415,6 @@ ResultSet rs;
     private javax.swing.JLabel txtdate;
     private javax.swing.JPasswordField txtpass;
     private javax.swing.JLabel txttime;
-    private javax.swing.JTextField txtuser;
+    public static javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }
