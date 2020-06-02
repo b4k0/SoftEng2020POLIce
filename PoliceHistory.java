@@ -8,18 +8,29 @@ package police;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JLabel;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author user
  */
 public class PoliceHistory extends javax.swing.JFrame {
-      
+      Connection con;
+      PreparedStatement pst;
+      ResultSet rs;
     /**
      * Creates new form LoginPage
      */
@@ -27,11 +38,71 @@ public class PoliceHistory extends javax.swing.JFrame {
         initComponents();
         showDate();
         showTime();
-        
+        policehistory();
         
 
     }
     
+       private void policehistory()
+    {
+
+        String username= LoginPagePolice.txtuser.getText();
+    int c;
+           try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
+            
+            pst = con.prepareStatement("select * from call_police where police=? and situation='Ολοκληρωμένο' ");
+            pst.setString(1, username);
+           rs = pst.executeQuery();
+           
+           ResultSetMetaData Rss = rs.getMetaData();
+           c = Rss.getColumnCount();
+           
+           DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
+           Df.setRowCount(0);
+           
+         
+             
+           
+           
+           while(rs.next())
+           {
+               Vector v2 = new Vector();
+               
+               for(int a=1; a<=c; a++)
+               {
+                   v2.add(rs.getString("id"));
+                   v2.add(rs.getString("username"));
+                    v2.add(rs.getString("emergency"));
+                     v2.add(rs.getString("address"));
+                      
+                       v2.add(rs.getString("police"));
+                        v2.add(rs.getString("policeteam"));
+                         v2.add(rs.getString("situation"));
+                        
+                       
+                         
+               }
+               
+               
+                Df.addRow(v2);
+           }
+         
+                 
+            
+        
+        } catch (ClassNotFoundException ex) { 
+              Logger.getLogger(AdminNewEm.class.getName()).log(Level.SEVERE, null, ex);
+          } catch (SQLException ex) {
+              Logger.getLogger(AdminNewEm.class.getName()).log(Level.SEVERE, null, ex);
+          } 
+           
+               
+       
+           
+      }
+     
      
     
     void showDate() {
@@ -78,9 +149,9 @@ public class PoliceHistory extends javax.swing.JFrame {
         txttime = new javax.swing.JLabel();
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -218,35 +289,6 @@ public class PoliceHistory extends javax.swing.JFrame {
         jLabel7.setText("Πάτρα,Ελλάδα");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(0, 51, 255));
-        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "id", "name", "surname", "peristatiko", "address"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 480, 190));
-
         jButton5.setBackground(new java.awt.Color(0, 51, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
@@ -258,6 +300,41 @@ public class PoliceHistory extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 140, 40));
+
+        jTable1.setBackground(new java.awt.Color(0, 51, 255));
+        jTable1.setFont(new java.awt.Font("Segoe UI Black", 1, 8)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "Username", "Περιστατικό", "Διεύθυνση", "Αστυνομικός", "Αστυνομική Ομάδα", "Κατάσταση"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 550, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -308,6 +385,11 @@ public class PoliceHistory extends javax.swing.JFrame {
     private void jLabel15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MousePressed
 
     }//GEN-LAST:event_jLabel15MousePressed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
+        int selectedIndex = jTable1.getSelectedRow();
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
