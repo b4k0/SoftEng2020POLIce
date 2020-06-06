@@ -8,9 +8,16 @@ package police;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.Thread.sleep;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JLabel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -19,7 +26,14 @@ import javax.swing.Timer;
  * @author user
  */
 public class CallCitizen extends javax.swing.JFrame {
-      
+      Connection con;
+      ResultSet rs,rs2;
+      PreparedStatement pst,pst2;
+       int seconds = 0;
+      int minutes=0;
+      int hours=0;
+      static boolean situation = true;
+     
     /**
      * Creates new form LoginPage
      */
@@ -27,12 +41,84 @@ public class CallCitizen extends javax.swing.JFrame {
         initComponents();
         showDate();
         showTime();
-        
+        callcitizen();
         
 
     }
     
-     
+    
+    
+    
+   
+    
+     private void callcitizen()
+     {
+         String user=LoginPagePolice.txtuser.getText();
+       
+  
+        
+        
+        
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                
+                 con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
+                 pst=con.prepareStatement("select username from call_police where police=? ");
+                 pst.setString(1, user);
+                 rs=pst.executeQuery();
+            
+                 
+              
+            
+                
+            while(rs.next())
+            {
+               String u = rs.getString("username"); 
+               pst2 = con.prepareStatement("select tel from user where username=?"); 
+               pst2.setString(1, u);
+               rs2=pst2.executeQuery();
+               //System.out.println(u);
+                
+              
+              if(rs2.next())
+              {
+                  txttel.setText(rs2.getString("tel"));
+                  
+              }
+            
+              else
+              {
+                 
+                  JOptionPane.showMessageDialog(null,"Ο πολίτης είναι συνδεδεμένος ως επισκέπτης και δεν είναι δυνατή η κλήση");
+                  
+                  
+              }
+              
+              
+            }
+             
+               
+                
+                
+             
+            
+                
+             
+                
+                
+                
+                
+                
+                
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PoliceEdit.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+            
+        catch (SQLException ex) {
+              Logger.getLogger(PoliceEdit.class.getName()).log(Level.SEVERE, null, ex);
+          }
+     }
     
     void showDate() {
         Date d = new Date();
@@ -70,6 +156,7 @@ public class CallCitizen extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        Back = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -77,9 +164,9 @@ public class CallCitizen extends javax.swing.JFrame {
         txttime = new javax.swing.JLabel();
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        txttel = new javax.swing.JLabel();
+        Call = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -117,9 +204,14 @@ public class CallCitizen extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_iphone_30px.png"))); // NOI18N
         jLabel16.setText("Επικοινωνία με Πολίτη");
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        Back.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Back.setForeground(new java.awt.Color(255, 255, 255));
+        Back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_back_arrow_30px_2.png"))); // NOI18N
+        Back.setText("Πίσω");
+        Back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel16MousePressed(evt);
+                BackMousePressed(evt);
             }
         });
 
@@ -129,23 +221,27 @@ public class CallCitizen extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(93, 93, 93)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(28, 28, 28)
+                                    .addComponent(jLabel3))
+                                .addComponent(jLabel1)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(27, 27, 27)
+                                    .addComponent(jLabel2))))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(86, 86, 86)
+                            .addComponent(jLabel5))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel16)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel2))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel16)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,9 +252,11 @@ public class CallCitizen extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(81, 81, 81)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(Back)
+                .addGap(122, 122, 122)
                 .addComponent(jLabel5)
                 .addGap(41, 41, 41))
         );
@@ -203,23 +301,24 @@ public class CallCitizen extends javax.swing.JFrame {
         jLabel7.setText("Πάτρα,Ελλάδα");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_call_forwarding_100px_1.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 90, -1));
+        txttel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txttel.setForeground(new java.awt.Color(255, 255, 255));
+        txttel.setText(" ");
+        jPanel1.add(txttel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 170, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Call 6912345678");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 200, -1));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_end_call_50px.png"))); // NOI18N
-        jLabel10.setText("jLabel10");
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        Call.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_call_50px_1.png"))); // NOI18N
+        Call.setText("jLabel10");
+        Call.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel10MouseClicked(evt);
+                CallMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 50, -1));
+        jPanel1.add(Call, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 50, 50));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Call");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 50, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -245,15 +344,92 @@ public class CallCitizen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel5MousePressed
 
-    private void jLabel16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel16MousePressed
+    private void CallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CallMouseClicked
+        String phone = txttel.getText();
+        CallScreen b = new CallScreen();
+        b.setVisible(true);
+       
+        
+        
+        
+        b.callphonecitizen(phone);
+                       
+        
+        
+         situation = true;
+        
+        Thread t = new Thread()
+        {
+            public void run()
+            {
+                for(;;)
+                {
+                   if(situation=true) 
+                   {
+                       
+                      try
+                      {
+                         
+                         sleep(1000);
+                       if  (seconds>60)
+                       {
+                           seconds=0;
+                           minutes++;
+                           hours=0;
+                            
+                       }
+                         
+                          if  (minutes>60)
+                       {
+                           seconds=0;
+                           minutes=0;
+                           hours++;
+                          
+                       }
+                          
+                          
+                          CallScreen.second.setText(" : " +seconds);
+                          
+                          seconds++;
+                         CallScreen.minute.setText(" : " +minutes);
+                          CallScreen.hour.setText("" +hours);
+              
+                         
+                      }
+                      catch(Exception e)
+                      {
+                          
+                      }
+                     
+              
+                       
+                   }
+                  
+                  
+                   
+                   
+                    
+                 
+                    
+                    
+                    
+                    
+                    
+                }
+                
+                   
+            }
+        };
+        
+        t.start();
+        
+    }//GEN-LAST:event_CallMouseClicked
 
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-       Police a = new Police();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel10MouseClicked
+    private void BackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMousePressed
+                  Police a = new Police();
+                  a.setVisible(true);
+                  this.dispose();
+    }//GEN-LAST:event_BackMousePressed
 
     /**
      * @param args the command line arguments
@@ -1314,22 +1490,23 @@ public class CallCitizen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Back;
+    private javax.swing.JLabel Call;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel txtdate;
+    public static javax.swing.JLabel txttel;
     private javax.swing.JLabel txttime;
     // End of variables declaration//GEN-END:variables
 }
