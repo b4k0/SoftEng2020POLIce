@@ -320,7 +320,7 @@ public class GuestSentEm extends javax.swing.JFrame {
       
       if(emergency.equals("Eπιλέξτε ένα Περιστατικό:") || address.equals(""))
        {
-          JOptionPane.showMessageDialog(this,"Το επείγον περιστατικό ή η διεύθυνση είναι κενά","Αποτυχία Αποστολής Περιστατικού",JOptionPane.ERROR_MESSAGE); 
+          JOptionPane.showMessageDialog(this,"Το επείγον περιστατικό ή η διεύθυνση είναι κενά!","Αποτυχία Αναφοράς Περιστατικού",JOptionPane.ERROR_MESSAGE); 
        }
        else
        {
@@ -341,7 +341,7 @@ public class GuestSentEm extends javax.swing.JFrame {
          
           
           
-          JOptionPane.showMessageDialog(this,"Επιτυχής Αποστολή Περιστατικού");
+          JOptionPane.showMessageDialog(this,"Επιτυχής Δήλωση Περιστατικού");
          
          txtem.getSelectedItem().equals("Επιλέξτε ένα Περιστατικό:");
          txtadd.setText("");
