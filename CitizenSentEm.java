@@ -79,7 +79,7 @@ PreparedStatement pst;
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        ExitCitizen = new javax.swing.JLabel();
+        LogoutCitizen = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -91,8 +91,8 @@ PreparedStatement pst;
         jLabel7 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        SentEm = new javax.swing.JButton();
-        Clean = new javax.swing.JButton();
+        SentEmCitizen = new javax.swing.JButton();
+        Reset = new javax.swing.JButton();
         Cancel = new javax.swing.JButton();
         txtadd = new javax.swing.JTextField();
         txtem = new javax.swing.JComboBox<>();
@@ -125,13 +125,13 @@ PreparedStatement pst;
             }
         });
 
-        ExitCitizen.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        ExitCitizen.setForeground(new java.awt.Color(255, 255, 255));
-        ExitCitizen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        ExitCitizen.setText("Aποσύνδεση");
-        ExitCitizen.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogoutCitizen.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        LogoutCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        LogoutCitizen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        LogoutCitizen.setText("Aποσύνδεση");
+        LogoutCitizen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                ExitCitizenMousePressed(evt);
+                LogoutCitizenMousePressed(evt);
             }
         });
 
@@ -168,7 +168,7 @@ PreparedStatement pst;
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(ExitCitizen))))
+                            .addComponent(LogoutCitizen))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -183,7 +183,7 @@ PreparedStatement pst;
                 .addGap(75, 75, 75)
                 .addComponent(jLabel9)
                 .addGap(55, 55, 55)
-                .addComponent(ExitCitizen)
+                .addComponent(LogoutCitizen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(41, 41, 41))
@@ -239,29 +239,29 @@ PreparedStatement pst;
         jLabel17.setText("Διεύθυνση Περιστατικού");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
 
-        SentEm.setBackground(new java.awt.Color(0, 51, 255));
-        SentEm.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        SentEm.setForeground(new java.awt.Color(255, 255, 255));
-        SentEm.setText("Αποστολή");
-        SentEm.setBorder(null);
-        SentEm.addActionListener(new java.awt.event.ActionListener() {
+        SentEmCitizen.setBackground(new java.awt.Color(0, 51, 255));
+        SentEmCitizen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        SentEmCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        SentEmCitizen.setText("Αποστολή");
+        SentEmCitizen.setBorder(null);
+        SentEmCitizen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SentEmActionPerformed(evt);
+                SentEmCitizenActionPerformed(evt);
             }
         });
-        jPanel1.add(SentEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 120, 40));
+        jPanel1.add(SentEmCitizen, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 120, 40));
 
-        Clean.setBackground(new java.awt.Color(0, 51, 255));
-        Clean.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        Clean.setForeground(new java.awt.Color(255, 255, 255));
-        Clean.setText("Καθαρισμός");
-        Clean.setBorder(null);
-        Clean.addActionListener(new java.awt.event.ActionListener() {
+        Reset.setBackground(new java.awt.Color(0, 51, 255));
+        Reset.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Reset.setForeground(new java.awt.Color(255, 255, 255));
+        Reset.setText("Καθαρισμός");
+        Reset.setBorder(null);
+        Reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CleanActionPerformed(evt);
+                ResetActionPerformed(evt);
             }
         });
-        jPanel1.add(Clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 140, 40));
+        jPanel1.add(Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 140, 40));
 
         Cancel.setBackground(new java.awt.Color(0, 51, 255));
         Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -305,7 +305,7 @@ PreparedStatement pst;
          this.dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
-    private void ExitCitizenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitCitizenMousePressed
+    private void LogoutCitizenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutCitizenMousePressed
       int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -315,7 +315,7 @@ PreparedStatement pst;
 
         }
 
-    }//GEN-LAST:event_ExitCitizenMousePressed
+    }//GEN-LAST:event_LogoutCitizenMousePressed
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -326,23 +326,23 @@ PreparedStatement pst;
         }
     }//GEN-LAST:event_jLabel5MousePressed
 
-    private void CleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CleanActionPerformed
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
         txtem.getSelectedItem().equals("Επιλέξτε ένα Περιστατικό:");
         txtadd.setText("");
-    }//GEN-LAST:event_CleanActionPerformed
+    }//GEN-LAST:event_ResetActionPerformed
 
-    private void SentEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SentEmActionPerformed
+    private void SentEmCitizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SentEmCitizenActionPerformed
       String Username = LoginPageCitizen.txtuser.getText();
       String emergency = (String) txtem.getSelectedItem();
-      String address = txtadd.getText();
+      String address_em = txtadd.getText();
       String date = txtdate.getText();
       String time = txttime.getText();
       String situation="Σε αναμονή";
       
       
-      if(emergency.equals("Επιλέξτε ένα Περιστατικό:") || address.equals(""))
+      if(emergency.equals("Επιλέξτε ένα Περιστατικό:") || address_em.equals(""))
        {
-          JOptionPane.showMessageDialog(this,"Το επείγον περιστατικό ή η διεύθυνση περιστατικού είναι κενά","Συμπληρώστε όλα τα πεδία",JOptionPane.ERROR_MESSAGE); 
+          JOptionPane.showMessageDialog(this,"Το επείγον περιστατικό ή η διεύθυνση περιστατικού είναι κενά!","Συμπληρώστε όλα τα πεδία",JOptionPane.ERROR_MESSAGE); 
        }
        else
        {
@@ -355,7 +355,7 @@ PreparedStatement pst;
           pst = con.prepareStatement("insert into em_citizen (username,emergency,address_em,date,time,situation) values (?,?,?,?,?,?)");
           pst.setString(1, Username);
           pst.setString(2, emergency);
-          pst.setString(3, address);
+          pst.setString(3, address_em);
           pst.setString(4, date);
           pst.setString(5, time);
           pst.setString(6,situation);
@@ -363,7 +363,7 @@ PreparedStatement pst;
          
           
           
-          JOptionPane.showMessageDialog(this,"Επιτυχής δήλωση περιστατικού");
+          JOptionPane.showMessageDialog(this,"Επιτυχής Δήλωση περιστατικού!");
          
          
          
@@ -379,7 +379,7 @@ PreparedStatement pst;
       }
     } 
       
-    }//GEN-LAST:event_SentEmActionPerformed
+    }//GEN-LAST:event_SentEmCitizenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -545,9 +545,9 @@ PreparedStatement pst;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
-    private javax.swing.JButton Clean;
-    private javax.swing.JLabel ExitCitizen;
-    private javax.swing.JButton SentEm;
+    private javax.swing.JLabel LogoutCitizen;
+    private javax.swing.JButton Reset;
+    private javax.swing.JButton SentEmCitizen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
