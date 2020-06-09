@@ -93,16 +93,16 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="PoliceCall" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Logout" min="-2" max="-2" attributes="0"/>
-                                  <Component id="PoliceEdit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CallCitizen" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LogoutPolice" min="-2" max="-2" attributes="0"/>
+                                  <Component id="EditPolice" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="PoliceHistory" min="-2" max="-2" attributes="0"/>
-                                  <Component id="PoliceNewEm" min="-2" max="-2" attributes="0"/>
+                                  <Component id="HistoryPolice" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NewEmPolice" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -120,15 +120,15 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="PoliceNewEm" min="-2" max="-2" attributes="0"/>
+                      <Component id="NewEmPolice" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="PoliceHistory" min="-2" max="-2" attributes="0"/>
+                      <Component id="HistoryPolice" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="PoliceEdit" min="-2" max="-2" attributes="0"/>
+                      <Component id="EditPolice" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="32" max="32767" attributes="0"/>
-                      <Component id="PoliceCall" min="-2" max="-2" attributes="0"/>
+                      <Component id="CallCitizen" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="Logout" min="-2" max="-2" attributes="0"/>
+                      <Component id="LogoutPolice" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="Exit" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
@@ -172,7 +172,7 @@
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ExitMousePressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="Logout">
+            <Component class="javax.swing.JLabel" name="LogoutPolice">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -186,10 +186,10 @@
                 <Property name="text" type="java.lang.String" value="A&#x3c0;&#x3bf;&#x3c3;&#x3cd;&#x3bd;&#x3b4;&#x3b5;&#x3c3;&#x3b7;"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LogoutMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LogoutPoliceMousePressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="PoliceNewEm">
+            <Component class="javax.swing.JLabel" name="NewEmPolice">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -203,10 +203,10 @@
                 <Property name="text" type="java.lang.String" value="&#x39d;&#x3ad;&#x3b1; &#x3a0;&#x3b5;&#x3c1;&#x3b9;&#x3c3;&#x3c4;&#x3b1;&#x3c4;&#x3b9;&#x3ba;&#x3ac;"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PoliceNewEmMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NewEmPoliceMousePressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="PoliceEdit">
+            <Component class="javax.swing.JLabel" name="EditPolice">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -220,10 +220,10 @@
                 <Property name="text" type="java.lang.String" value="E&#x3c0;&#x3b5;&#x3be;&#x3b5;&#x3c1;&#x3b3;&#x3b1;&#x3c3;&#x3af;&#x3b1; &#x3a3;&#x3c4;&#x3bf;&#x3b9;&#x3c7;&#x3b5;&#x3af;&#x3c9;&#x3bd;"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PoliceEditMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="EditPoliceMousePressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="PoliceHistory">
+            <Component class="javax.swing.JLabel" name="HistoryPolice">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -237,7 +237,7 @@
                 <Property name="text" type="java.lang.String" value="&#x399;&#x3c3;&#x3c4;&#x3bf;&#x3c1;&#x3b9;&#x3ba;&#x3cc; &#x3a0;&#x3b5;&#x3c1;&#x3b9;&#x3c3;&#x3c4;&#x3b1;&#x3c4;&#x3b9;&#x3ba;&#x3ce;&#x3bd;"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PoliceHistoryMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="HistoryPoliceMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -253,7 +253,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="PoliceCall">
+            <Component class="javax.swing.JLabel" name="CallCitizen">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -267,7 +267,7 @@
                 <Property name="text" type="java.lang.String" value="&#x395;&#x3c0;&#x3b9;&#x3ba;&#x3bf;&#x3b9;&#x3bd;&#x3c9;&#x3bd;&#x3af;&#x3b1; &#x3bc;&#x3b5; &#x3a0;&#x3bf;&#x3bb;&#x3af;&#x3c4;&#x3b7;"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PoliceCallMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CallCitizenMousePressed"/>
               </Events>
             </Component>
           </SubComponents>

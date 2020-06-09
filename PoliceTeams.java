@@ -367,6 +367,20 @@ public class PoliceTeams extends javax.swing.JFrame {
          String policeteam=(String) txtteam.getSelectedItem();
          String situation = "Απεσταλμένο";
          
+         
+         
+         if (txtteam.getSelectedItem().equals("Επιλέξτε Αστυνομική Ομάδα:"))
+         {
+             JOptionPane.showMessageDialog(null,"Eπιλέξτε Αστυνομική Ομάδα για να συνεχίσετε!","Αποτυχία",JOptionPane.ERROR_MESSAGE);
+         }
+         else
+         {
+             
+         
+         
+         
+         
+         
           try {
               Class.forName("com.mysql.cj.jdbc.Driver");
               con=DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
@@ -385,7 +399,7 @@ public class PoliceTeams extends javax.swing.JFrame {
               
               
               
-              JOptionPane.showMessageDialog(this,"Επιτυχής επιλογή Αστυνομικής Ομάδας και Αστυνομικού");
+              JOptionPane.showMessageDialog(this,"Επιτυχής επιλογή Αστυνομικής Ομάδας και Αστυνομικού!");
               Admin a = new Admin();
               a.setVisible(true);
               this.dispose();
@@ -402,7 +416,7 @@ public class PoliceTeams extends javax.swing.JFrame {
           }
         
     
-         
+         }     
         
         
         

@@ -68,12 +68,12 @@ public class Police extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Exit = new javax.swing.JLabel();
-        Logout = new javax.swing.JLabel();
-        PoliceNewEm = new javax.swing.JLabel();
-        PoliceEdit = new javax.swing.JLabel();
-        PoliceHistory = new javax.swing.JLabel();
+        LogoutPolice = new javax.swing.JLabel();
+        NewEmPolice = new javax.swing.JLabel();
+        EditPolice = new javax.swing.JLabel();
+        HistoryPolice = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        PoliceCall = new javax.swing.JLabel();
+        CallCitizen = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -111,43 +111,43 @@ public class Police extends javax.swing.JFrame {
             }
         });
 
-        Logout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Logout.setForeground(new java.awt.Color(255, 255, 255));
-        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        Logout.setText("Aποσύνδεση");
-        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogoutPolice.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        LogoutPolice.setForeground(new java.awt.Color(255, 255, 255));
+        LogoutPolice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        LogoutPolice.setText("Aποσύνδεση");
+        LogoutPolice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                LogoutMousePressed(evt);
+                LogoutPoliceMousePressed(evt);
             }
         });
 
-        PoliceNewEm.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        PoliceNewEm.setForeground(new java.awt.Color(255, 255, 255));
-        PoliceNewEm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_notification_center_30px.png"))); // NOI18N
-        PoliceNewEm.setText("Νέα Περιστατικά");
-        PoliceNewEm.addMouseListener(new java.awt.event.MouseAdapter() {
+        NewEmPolice.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NewEmPolice.setForeground(new java.awt.Color(255, 255, 255));
+        NewEmPolice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_notification_center_30px.png"))); // NOI18N
+        NewEmPolice.setText("Νέα Περιστατικά");
+        NewEmPolice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                PoliceNewEmMousePressed(evt);
+                NewEmPoliceMousePressed(evt);
             }
         });
 
-        PoliceEdit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        PoliceEdit.setForeground(new java.awt.Color(255, 255, 255));
-        PoliceEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_edit_30px.png"))); // NOI18N
-        PoliceEdit.setText("Eπεξεργασία Στοιχείων");
-        PoliceEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+        EditPolice.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        EditPolice.setForeground(new java.awt.Color(255, 255, 255));
+        EditPolice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_edit_30px.png"))); // NOI18N
+        EditPolice.setText("Eπεξεργασία Στοιχείων");
+        EditPolice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                PoliceEditMousePressed(evt);
+                EditPoliceMousePressed(evt);
             }
         });
 
-        PoliceHistory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        PoliceHistory.setForeground(new java.awt.Color(255, 255, 255));
-        PoliceHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_folder_30px.png"))); // NOI18N
-        PoliceHistory.setText("Ιστορικό Περιστατικών");
-        PoliceHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+        HistoryPolice.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        HistoryPolice.setForeground(new java.awt.Color(255, 255, 255));
+        HistoryPolice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_folder_30px.png"))); // NOI18N
+        HistoryPolice.setText("Ιστορικό Περιστατικών");
+        HistoryPolice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                PoliceHistoryMousePressed(evt);
+                HistoryPoliceMousePressed(evt);
             }
         });
 
@@ -155,13 +155,13 @@ public class Police extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_40px.png"))); // NOI18N
 
-        PoliceCall.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        PoliceCall.setForeground(new java.awt.Color(255, 255, 255));
-        PoliceCall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_iphone_30px.png"))); // NOI18N
-        PoliceCall.setText("Επικοινωνία με Πολίτη");
-        PoliceCall.addMouseListener(new java.awt.event.MouseAdapter() {
+        CallCitizen.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        CallCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        CallCitizen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_iphone_30px.png"))); // NOI18N
+        CallCitizen.setText("Επικοινωνία με Πολίτη");
+        CallCitizen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                PoliceCallMousePressed(evt);
+                CallCitizenMousePressed(evt);
             }
         });
 
@@ -187,14 +187,14 @@ public class Police extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PoliceCall)
-                            .addComponent(Logout)
-                            .addComponent(PoliceEdit)))
+                            .addComponent(CallCitizen)
+                            .addComponent(LogoutPolice)
+                            .addComponent(EditPolice)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PoliceHistory)
-                            .addComponent(PoliceNewEm))))
+                            .addComponent(HistoryPolice)
+                            .addComponent(NewEmPolice))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -207,15 +207,15 @@ public class Police extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(PoliceNewEm)
+                .addComponent(NewEmPolice)
                 .addGap(32, 32, 32)
-                .addComponent(PoliceHistory)
+                .addComponent(HistoryPolice)
                 .addGap(27, 27, 27)
-                .addComponent(PoliceEdit)
+                .addComponent(EditPolice)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(PoliceCall)
+                .addComponent(CallCitizen)
                 .addGap(28, 28, 28)
-                .addComponent(Logout)
+                .addComponent(LogoutPolice)
                 .addGap(26, 26, 26)
                 .addComponent(Exit)
                 .addGap(41, 41, 41))
@@ -282,29 +282,29 @@ public class Police extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PoliceHistoryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoliceHistoryMousePressed
+    private void HistoryPoliceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoryPoliceMousePressed
        
        PoliceHistory a = new PoliceHistory();
         a.setVisible(true);
         this.dispose();
        
-    }//GEN-LAST:event_PoliceHistoryMousePressed
+    }//GEN-LAST:event_HistoryPoliceMousePressed
 
-    private void PoliceEditMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoliceEditMousePressed
+    private void EditPoliceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditPoliceMousePressed
         PoliceEdit a = new PoliceEdit();
         a.setVisible(true);
         this.dispose();
         
       
-    }//GEN-LAST:event_PoliceEditMousePressed
+    }//GEN-LAST:event_EditPoliceMousePressed
 
-    private void PoliceNewEmMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoliceNewEmMousePressed
+    private void NewEmPoliceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewEmPoliceMousePressed
         PoliceNewEm a = new PoliceNewEm();
         a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_PoliceNewEmMousePressed
+    }//GEN-LAST:event_NewEmPoliceMousePressed
 
-    private void LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMousePressed
+    private void LogoutPoliceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutPoliceMousePressed
        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -318,7 +318,7 @@ public class Police extends javax.swing.JFrame {
         
         
        
-    }//GEN-LAST:event_LogoutMousePressed
+    }//GEN-LAST:event_LogoutPoliceMousePressed
 
     private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -329,11 +329,12 @@ public class Police extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ExitMousePressed
 
-    private void PoliceCallMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoliceCallMousePressed
-     CallCitizen a = new CallCitizen();
+    private void CallCitizenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CallCitizenMousePressed
+        
+        CallCitizen a = new CallCitizen();
         a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_PoliceCallMousePressed
+    }//GEN-LAST:event_CallCitizenMousePressed
 
     /**
      * @param args the command line arguments
@@ -626,12 +627,12 @@ public class Police extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CallCitizen;
+    private javax.swing.JLabel EditPolice;
     private javax.swing.JLabel Exit;
-    private javax.swing.JLabel Logout;
-    private javax.swing.JLabel PoliceCall;
-    private javax.swing.JLabel PoliceEdit;
-    private javax.swing.JLabel PoliceHistory;
-    private javax.swing.JLabel PoliceNewEm;
+    private javax.swing.JLabel HistoryPolice;
+    private javax.swing.JLabel LogoutPolice;
+    private javax.swing.JLabel NewEmPolice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
