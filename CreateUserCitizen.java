@@ -82,7 +82,7 @@ public class CreateUserCitizen extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         CreateUserCitizen = new javax.swing.JButton();
-        Clean = new javax.swing.JButton();
+        Reset = new javax.swing.JButton();
         Cancel = new javax.swing.JButton();
         txtuser = new javax.swing.JTextField();
         txtadd = new javax.swing.JTextField();
@@ -227,17 +227,17 @@ public class CreateUserCitizen extends javax.swing.JFrame {
         });
         jPanel1.add(CreateUserCitizen, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 170, 40));
 
-        Clean.setBackground(new java.awt.Color(0, 51, 255));
-        Clean.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        Clean.setForeground(new java.awt.Color(255, 255, 255));
-        Clean.setText("Καθαρισμός");
-        Clean.setBorder(null);
-        Clean.addActionListener(new java.awt.event.ActionListener() {
+        Reset.setBackground(new java.awt.Color(0, 51, 255));
+        Reset.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Reset.setForeground(new java.awt.Color(255, 255, 255));
+        Reset.setText("Καθαρισμός");
+        Reset.setBorder(null);
+        Reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CleanActionPerformed(evt);
+                ResetActionPerformed(evt);
             }
         });
-        jPanel1.add(Clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 150, 40));
+        jPanel1.add(Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 150, 40));
 
         Cancel.setBackground(new java.awt.Color(0, 51, 255));
         Cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -329,7 +329,7 @@ public class CreateUserCitizen extends javax.swing.JFrame {
        
         if (fullname.equals("")|| username.equals("") || password.equals("") || address.equals("") || telephone.equals("") || idcard.equals("") )
         {
-            JOptionPane.showMessageDialog(null,"Ένα ή περισσότερα στοιχεία είναι κενά!","Αποτυχία δημιουργίας Λογαριασμού",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Ένα ή περισσότερα στοιχεία είναι κενά!","Αποτυχία δημιουργίας Λογαριασμού!",JOptionPane.ERROR_MESSAGE);
         }
         else
         {
@@ -347,7 +347,7 @@ public class CreateUserCitizen extends javax.swing.JFrame {
                  
                  pst.executeUpdate();
                  
-                 JOptionPane.showMessageDialog(this,"Επιτυχής Εγγραφή");
+                 JOptionPane.showMessageDialog(this,"Επιτυχής Εγγραφή!");
                  HomePage a = new HomePage();
                  a.setVisible(true);
                  this.dispose();
@@ -369,14 +369,14 @@ public class CreateUserCitizen extends javax.swing.JFrame {
      }
     }//GEN-LAST:event_CreateUserCitizenActionPerformed
 
-    private void CleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CleanActionPerformed
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
        txtfull.setText("");
        txtuser.setText("");
        txtpass.setText("");
        txtadd.setText("");
        txttel.setText("");
        txtid.setText("");
-    }//GEN-LAST:event_CleanActionPerformed
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -542,9 +542,9 @@ public class CreateUserCitizen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
-    private javax.swing.JButton Clean;
     private javax.swing.JButton CreateUserCitizen;
     private javax.swing.JLabel Exit;
+    private javax.swing.JButton Reset;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
