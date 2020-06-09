@@ -155,8 +155,8 @@ void showDate() {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        ExitCitizen = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
+        LogoutCitizen = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -188,23 +188,23 @@ void showDate() {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel5.setText("Έξοδος");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
+        Exit.setText("Έξοδος");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                ExitMousePressed(evt);
             }
         });
 
-        ExitCitizen.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        ExitCitizen.setForeground(new java.awt.Color(255, 255, 255));
-        ExitCitizen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        ExitCitizen.setText("Aποσύνδεση");
-        ExitCitizen.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogoutCitizen.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        LogoutCitizen.setForeground(new java.awt.Color(255, 255, 255));
+        LogoutCitizen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        LogoutCitizen.setText("Aποσύνδεση");
+        LogoutCitizen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                ExitCitizenMousePressed(evt);
+                LogoutCitizenMousePressed(evt);
             }
         });
 
@@ -233,12 +233,12 @@ void showDate() {
                             .addComponent(jLabel1)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(jLabel5))
+                        .addComponent(Exit))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
-                            .addComponent(ExitCitizen)))
+                            .addComponent(LogoutCitizen)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -256,9 +256,9 @@ void showDate() {
                 .addGap(67, 67, 67)
                 .addComponent(jLabel15)
                 .addGap(49, 49, 49)
-                .addComponent(ExitCitizen)
+                .addComponent(LogoutCitizen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addGap(41, 41, 41))
         );
 
@@ -367,7 +367,7 @@ void showDate() {
        
     }//GEN-LAST:event_CancelActionPerformed
 
-    private void ExitCitizenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitCitizenMousePressed
+    private void LogoutCitizenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutCitizenMousePressed
          int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -376,16 +376,16 @@ void showDate() {
         } else {
 
         }
-    }//GEN-LAST:event_ExitCitizenMousePressed
+    }//GEN-LAST:event_LogoutCitizenMousePressed
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
         } else {
 
         }
-    }//GEN-LAST:event_jLabel5MousePressed
+    }//GEN-LAST:event_ExitMousePressed
 
     /**
      * @param args the command line arguments
@@ -679,8 +679,9 @@ void showDate() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
-    private javax.swing.JLabel ExitCitizen;
+    private javax.swing.JLabel Exit;
     private javax.swing.JTable HistoryCitizen;
+    private javax.swing.JLabel LogoutCitizen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -688,7 +689,6 @@ void showDate() {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
