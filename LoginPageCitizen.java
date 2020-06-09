@@ -74,7 +74,7 @@ ResultSet rs;
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -85,8 +85,8 @@ ResultSet rs;
         jLabel7 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Login = new javax.swing.JButton();
+        Reset = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txtuser = new javax.swing.JTextField();
         txtpass = new javax.swing.JPasswordField();
@@ -109,13 +109,13 @@ ResultSet rs;
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel5.setText("Έξοδος");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
+        Exit.setText("Έξοδος");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                ExitMousePressed(evt);
             }
         });
 
@@ -138,7 +138,7 @@ ResultSet rs;
                 .addGap(108, 108, 108))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(96, 96, 96)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addContainerGap(105, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -155,7 +155,7 @@ ResultSet rs;
                 .addGap(61, 61, 61)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addGap(40, 40, 40))
         );
 
@@ -209,29 +209,29 @@ ResultSet rs;
         jLabel17.setText("Κωδικός");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Σύνδεση");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Login.setBackground(new java.awt.Color(0, 51, 255));
+        Login.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Login.setForeground(new java.awt.Color(255, 255, 255));
+        Login.setText("Σύνδεση");
+        Login.setBorder(null);
+        Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                LoginActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 120, 40));
+        jPanel1.add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 120, 40));
 
-        jButton2.setBackground(new java.awt.Color(0, 51, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Καθαρισμός");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Reset.setBackground(new java.awt.Color(0, 51, 255));
+        Reset.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        Reset.setForeground(new java.awt.Color(255, 255, 255));
+        Reset.setText("Καθαρισμός");
+        Reset.setBorder(null);
+        Reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ResetActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 140, 40));
+        jPanel1.add(Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 140, 40));
 
         jButton3.setBackground(new java.awt.Color(0, 51, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -266,7 +266,7 @@ ResultSet rs;
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
@@ -274,7 +274,7 @@ ResultSet rs;
 
         }
 
-    }//GEN-LAST:event_jLabel5MousePressed
+    }//GEN-LAST:event_ExitMousePressed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
          LoginPage a = new   LoginPage();
@@ -282,13 +282,13 @@ ResultSet rs;
        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         
        String username = txtuser.getText();
        String password = txtpass.getText();
        if(username.equals("") || password.equals(""))
        {
-          JOptionPane.showMessageDialog(this,"Το όνομα χρήστη ή ο κωδικός είναι κενά","Συμπληρώστε ξανά τα στοιχεία σας",JOptionPane.INFORMATION_MESSAGE); 
+          JOptionPane.showMessageDialog(this,"Ο κωδικός ή το όνομα χρήστη είναι κενά!","Συμπληρώστε ξανά τα στοιχεία σας",JOptionPane.INFORMATION_MESSAGE); 
        }
        else
        {
@@ -302,7 +302,7 @@ ResultSet rs;
           
           if (rs.next())
           {
-              JOptionPane.showMessageDialog(this,"Συνδεθήκατε επιτυχώς","Σύνδεση",JOptionPane.INFORMATION_MESSAGE);
+              JOptionPane.showMessageDialog(this,"Επιτυχής σύνδεση!","Σύνδεση",JOptionPane.INFORMATION_MESSAGE);
               Citizen b = new Citizen();
               b.setVisible(true);
                this.dispose();
@@ -310,7 +310,7 @@ ResultSet rs;
           }
           else
           {
-             JOptionPane.showMessageDialog(this,"Το όνομα χρήστη ή ο κωδικός είναι λαμθασμένα","Aποτυχία Σύνδεσης",JOptionPane.ERROR_MESSAGE); 
+             JOptionPane.showMessageDialog(this,"Ο κωδικός ή το όνομα χρήστη είναι λανθασμένα!","Aποτυχία Σύνδεσης",JOptionPane.ERROR_MESSAGE); 
              txtuser.setText("");
              txtpass.setText("");
           }
@@ -331,12 +331,12 @@ ResultSet rs;
        
        
        } 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_LoginActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
         txtuser.setText("");
         txtpass.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,8 +389,9 @@ ResultSet rs;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel Exit;
+    private javax.swing.JButton Login;
+    private javax.swing.JButton Reset;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -399,7 +400,6 @@ ResultSet rs;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
