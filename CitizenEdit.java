@@ -404,6 +404,7 @@ ResultSet rs;
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
        Citizen a = new  Citizen();
         a.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
     private void UpdateCitizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateCitizenActionPerformed
@@ -413,6 +414,13 @@ ResultSet rs;
           String address= txtadd.getText();
           String tel= txttel.getText();
         
+          if (txtpass.equals("") || txtadd.equals("") || txttel.equals(""))
+          {
+              JOptionPane.showMessageDialog(null,"Ένα ή περισσότερα από τα επεξεργασμένα στοιχεία είναι κενά","Αποτυχία",JOptionPane.ERROR_MESSAGE);
+          }
+          else
+          {
+          
         try {
         Class.forName("com.mysql.cj.jdbc.Driver");
          con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
@@ -425,7 +433,7 @@ ResultSet rs;
              
          pst.executeUpdate();
          
-         JOptionPane.showMessageDialog(this,"Επιτυχής Επεξεργασία Στοιχείων");
+         JOptionPane.showMessageDialog(this,"Επιτυχής Ανανέωση Στοιχείων!");
          
          Citizen a = new Citizen();
          a.setVisible(true);
@@ -437,7 +445,7 @@ ResultSet rs;
     } catch (SQLException ex) {
         Logger.getLogger(CitizenEdit.class.getName()).log(Level.SEVERE, null, ex);
     }
-        
+          }   
     }//GEN-LAST:event_UpdateCitizenActionPerformed
 
     /**
