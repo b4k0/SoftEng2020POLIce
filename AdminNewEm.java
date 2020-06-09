@@ -174,7 +174,7 @@ public class AdminNewEm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Εxit = new javax.swing.JLabel();
-        Logout = new javax.swing.JLabel();
+        LogoutAdmin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -183,7 +183,7 @@ public class AdminNewEm extends javax.swing.JFrame {
         txtdate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Cancel = new javax.swing.JButton();
-        SelectEm = new javax.swing.JButton();
+        SelectEmAdmin = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -218,13 +218,13 @@ public class AdminNewEm extends javax.swing.JFrame {
             }
         });
 
-        Logout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Logout.setForeground(new java.awt.Color(255, 255, 255));
-        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        Logout.setText("Aποσύνδεση");
-        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogoutAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        LogoutAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        LogoutAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        LogoutAdmin.setText("Aποσύνδεση");
+        LogoutAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                LogoutMousePressed(evt);
+                LogoutAdminMousePressed(evt);
             }
         });
 
@@ -260,7 +260,7 @@ public class AdminNewEm extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(Logout))))
+                            .addComponent(LogoutAdmin))))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -275,7 +275,7 @@ public class AdminNewEm extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addComponent(jLabel9)
                 .addGap(43, 43, 43)
-                .addComponent(Logout)
+                .addComponent(LogoutAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(Εxit)
                 .addGap(41, 41, 41))
@@ -325,17 +325,17 @@ public class AdminNewEm extends javax.swing.JFrame {
         });
         jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 160, 40));
 
-        SelectEm.setBackground(new java.awt.Color(0, 51, 255));
-        SelectEm.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        SelectEm.setForeground(new java.awt.Color(255, 255, 255));
-        SelectEm.setText("Επιλογή");
-        SelectEm.setBorder(null);
-        SelectEm.addActionListener(new java.awt.event.ActionListener() {
+        SelectEmAdmin.setBackground(new java.awt.Color(0, 51, 255));
+        SelectEmAdmin.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        SelectEmAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        SelectEmAdmin.setText("Επιλογή");
+        SelectEmAdmin.setBorder(null);
+        SelectEmAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SelectEmActionPerformed(evt);
+                SelectEmAdminActionPerformed(evt);
             }
         });
-        jPanel1.add(SelectEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, 170, 40));
+        jPanel1.add(SelectEmAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, 170, 40));
 
         jTable3.setBackground(new java.awt.Color(0, 51, 255));
         jTable3.setFont(new java.awt.Font("Segoe UI Black", 1, 8)); // NOI18N
@@ -396,7 +396,7 @@ public class AdminNewEm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMousePressed
+    private void LogoutAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutAdminMousePressed
        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -410,7 +410,7 @@ public class AdminNewEm extends javax.swing.JFrame {
         
         
        
-    }//GEN-LAST:event_LogoutMousePressed
+    }//GEN-LAST:event_LogoutAdminMousePressed
 
     private void ΕxitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ΕxitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -427,7 +427,7 @@ public class AdminNewEm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
-    private void SelectEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectEmActionPerformed
+    private void SelectEmAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectEmAdminActionPerformed
          DefaultTableModel Df = (DefaultTableModel)jTable3.getModel();
          int selectedIndex = jTable3.getSelectedRow();
          
@@ -438,7 +438,7 @@ public class AdminNewEm extends javax.swing.JFrame {
          
         
         
-    }//GEN-LAST:event_SelectEmActionPerformed
+    }//GEN-LAST:event_SelectEmAdminActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
          DefaultTableModel Df = (DefaultTableModel)jTable3.getModel();
@@ -737,8 +737,8 @@ public class AdminNewEm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
-    private javax.swing.JLabel Logout;
-    private javax.swing.JButton SelectEm;
+    private javax.swing.JLabel LogoutAdmin;
+    private javax.swing.JButton SelectEmAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
