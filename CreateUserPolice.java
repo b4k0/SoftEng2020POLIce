@@ -355,7 +355,7 @@ PreparedStatement pst;
         
         if (policeteam.equals("Επιλέξτε Αστυνομική Ομάδα:")|| fullname.equals("")|| username.equals("") || password.equals("") || address.equals("") || telephone.equals("") || idcard.equals("") )
         {
-            JOptionPane.showMessageDialog(null,"Ένα ή περισσότερα στοιχεία είναι κενά!","Αποτυχία δημιουργίας Λογαριασμού",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Ένα ή περισσότερα στοιχεία είναι κενά!","Αποτυχία δημιουργίας Λογαριασμού!",JOptionPane.ERROR_MESSAGE);
         }
         else
         {
@@ -382,7 +382,7 @@ PreparedStatement pst;
                  
                  txtteam.requestFocus();
                  
-                 JOptionPane.showMessageDialog(this,"Επιτυχής Εγγραφή");
+                 JOptionPane.showMessageDialog(this,"Επιτυχής Εγγραφή!");
                  HomePage a = new HomePage();
                  a.setVisible(true);
                  this.dispose();
