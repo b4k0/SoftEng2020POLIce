@@ -51,8 +51,8 @@ public class AdminHistory extends javax.swing.JFrame {
            try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/police?useUnicode=yes?&characterEncoding=UTF-8","root","");
-            pst1 = con.prepareStatement("select * from guest where situation='Ολοκληρωμένο' ");
-            pst2 = con.prepareStatement("select * from em_citizen where situation='Ολοκληρωμένο' ");
+            pst1 = con.prepareStatement("select * from guest");
+            pst2 = con.prepareStatement("select * from em_citizen");
             
            rs1 = pst1.executeQuery();
            rs2 = pst2.executeQuery();
@@ -160,7 +160,7 @@ public class AdminHistory extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Exit = new javax.swing.JLabel();
-        Logout = new javax.swing.JLabel();
+        LogoutAdmin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -202,13 +202,13 @@ public class AdminHistory extends javax.swing.JFrame {
             }
         });
 
-        Logout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Logout.setForeground(new java.awt.Color(255, 255, 255));
-        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        Logout.setText("Aποσύνδεση");
-        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogoutAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        LogoutAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        LogoutAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        LogoutAdmin.setText("Aποσύνδεση");
+        LogoutAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                LogoutMousePressed(evt);
+                LogoutAdminMousePressed(evt);
             }
         });
 
@@ -244,7 +244,7 @@ public class AdminHistory extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
-                            .addComponent(Logout))))
+                            .addComponent(LogoutAdmin))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -259,7 +259,7 @@ public class AdminHistory extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addComponent(jLabel16)
                 .addGap(37, 37, 37)
-                .addComponent(Logout)
+                .addComponent(LogoutAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(Exit)
                 .addGap(41, 41, 41))
@@ -363,7 +363,7 @@ public class AdminHistory extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMousePressed
+    private void LogoutAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutAdminMousePressed
        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -377,7 +377,7 @@ public class AdminHistory extends javax.swing.JFrame {
         
         
        
-    }//GEN-LAST:event_LogoutMousePressed
+    }//GEN-LAST:event_LogoutAdminMousePressed
 
     private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -943,7 +943,7 @@ public class AdminHistory extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
     private javax.swing.JLabel Exit;
-    private javax.swing.JLabel Logout;
+    private javax.swing.JLabel LogoutAdmin;
     private javax.swing.JTable historytable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
