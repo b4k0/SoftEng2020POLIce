@@ -153,7 +153,7 @@ public class CallCitizen extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Exit = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         Back = new javax.swing.JLabel();
@@ -186,13 +186,13 @@ public class CallCitizen extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_police_badge_40px_1.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
-        jLabel5.setText("Έξοδος");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_shutdown_24px.png"))); // NOI18N
+        Exit.setText("Έξοδος");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                ExitMousePressed(evt);
             }
         });
 
@@ -234,7 +234,7 @@ public class CallCitizen extends javax.swing.JFrame {
                                     .addComponent(jLabel2))))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(86, 86, 86)
-                            .addComponent(jLabel5))
+                            .addComponent(Exit))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jLabel16)))
@@ -257,7 +257,7 @@ public class CallCitizen extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(Back)
                 .addGap(122, 122, 122)
-                .addComponent(jLabel5)
+                .addComponent(Exit)
                 .addGap(41, 41, 41))
         );
 
@@ -335,14 +335,14 @@ public class CallCitizen extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void ExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
         } else {
 
         }
-    }//GEN-LAST:event_jLabel5MousePressed
+    }//GEN-LAST:event_ExitMousePressed
 
     private void CallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CallMouseClicked
         String phone = txttel.getText();
@@ -1492,6 +1492,7 @@ public class CallCitizen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Back;
     private javax.swing.JLabel Call;
+    private javax.swing.JLabel Exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1500,7 +1501,6 @@ public class CallCitizen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
