@@ -38,14 +38,14 @@ public class AdminEdit extends javax.swing.JFrame {
         initComponents();
         showDate();
         showTime();
-        table();
+        table_edit();
         
        
         
 
     }
     
-    public void table(){
+    public void table_edit(){
     int c;
            try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -458,7 +458,7 @@ public class AdminEdit extends javax.swing.JFrame {
              
       
               
-              table();
+              table_edit();
               
               JOptionPane.showMessageDialog(this,"Επιτυχής Ανανέωση Κατάστασης","Μήνυμα",JOptionPane.INFORMATION_MESSAGE);
              
