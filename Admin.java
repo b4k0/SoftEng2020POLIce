@@ -39,7 +39,6 @@ public class Admin extends javax.swing.JFrame {
         txtdate.setText(s.format(d));
 
     }
-      // ώρα
 
     void showTime() {
         new Timer(0, new ActionListener() {
@@ -68,11 +67,11 @@ public class Admin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        LogoutAdmin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        NewEmAdmin = new javax.swing.JLabel();
+        HistoryAdmin = new javax.swing.JLabel();
+        EditAdmin = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -110,13 +109,13 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
-        jLabel8.setText("Aποσύνδεση");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogoutAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        LogoutAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        LogoutAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_exit_30px.png"))); // NOI18N
+        LogoutAdmin.setText("Aποσύνδεση");
+        LogoutAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+                LogoutAdminMousePressed(evt);
             }
         });
 
@@ -124,33 +123,33 @@ public class Admin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_administrator_male_40px.png"))); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_notification_center_30px.png"))); // NOI18N
-        jLabel9.setText("Νέα Περιστατικά");
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        NewEmAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NewEmAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        NewEmAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_notification_center_30px.png"))); // NOI18N
+        NewEmAdmin.setText("Νέα Περιστατικά");
+        NewEmAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel9MousePressed(evt);
+                NewEmAdminMousePressed(evt);
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_folder_30px.png"))); // NOI18N
-        jLabel16.setText("Ιστορικό Περιστατικών");
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+        HistoryAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        HistoryAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        HistoryAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_folder_30px.png"))); // NOI18N
+        HistoryAdmin.setText("Ιστορικό Περιστατικών");
+        HistoryAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel16MousePressed(evt);
+                HistoryAdminMousePressed(evt);
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_edit_30px.png"))); // NOI18N
-        jLabel10.setText("Eπεξεργασία Kατάστασης");
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        EditAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        EditAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        EditAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/police/images/icons8_edit_30px.png"))); // NOI18N
+        EditAdmin.setText("Eπεξεργασία Kατάστασης");
+        EditAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel10MousePressed(evt);
+                EditAdminMousePressed(evt);
             }
         });
 
@@ -169,7 +168,7 @@ public class Admin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
+                            .addComponent(EditAdmin)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(66, 66, 66)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,14 +176,14 @@ public class Admin extends javax.swing.JFrame {
                                         .addGap(28, 28, 28)
                                         .addComponent(jLabel3))
                                     .addComponent(jLabel1)))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(LogoutAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(28, 28, 28)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel16)
-                        .addComponent(jLabel9))
+                        .addComponent(HistoryAdmin)
+                        .addComponent(NewEmAdmin))
                     .addContainerGap(25, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -197,18 +196,18 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addComponent(jLabel10)
+                .addComponent(EditAdmin)
                 .addGap(39, 39, 39)
-                .addComponent(jLabel8)
+                .addComponent(LogoutAdmin)
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
                 .addGap(41, 41, 41))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(190, 190, 190)
-                    .addComponent(jLabel9)
+                    .addComponent(NewEmAdmin)
                     .addGap(32, 32, 32)
-                    .addComponent(jLabel16)
+                    .addComponent(HistoryAdmin)
                     .addContainerGap(248, Short.MAX_VALUE)))
         );
 
@@ -273,7 +272,7 @@ public class Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+    private void LogoutAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutAdminMousePressed
        int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να αποσυνδεθείτε ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (a == JOptionPane.YES_OPTION) {
              LoginPage b = new  LoginPage();
@@ -287,7 +286,7 @@ public class Admin extends javax.swing.JFrame {
         
         
        
-    }//GEN-LAST:event_jLabel8MousePressed
+    }//GEN-LAST:event_LogoutAdminMousePressed
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
         int a = JOptionPane.showConfirmDialog(this, "Επιθυμείτε να κλείσετε την εφαρμογή POLIce ;", "Έξοδος", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -298,26 +297,26 @@ public class Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel5MousePressed
 
-    private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
+    private void NewEmAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewEmAdminMousePressed
         AdminNewEm a = new AdminNewEm();
         a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel9MousePressed
+    }//GEN-LAST:event_NewEmAdminMousePressed
 
-    private void jLabel16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MousePressed
+    private void HistoryAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoryAdminMousePressed
 
         AdminHistory a = new AdminHistory();
         a.setVisible(true);
         this.dispose();
 
-    }//GEN-LAST:event_jLabel16MousePressed
+    }//GEN-LAST:event_HistoryAdminMousePressed
 
-    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+    private void EditAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditAdminMousePressed
        AdminEdit a = new AdminEdit();
         a.setVisible(true);
         this.dispose();
 
-    }//GEN-LAST:event_jLabel10MousePressed
+    }//GEN-LAST:event_EditAdminMousePressed
 
     /**
      * @param args the command line arguments
@@ -418,20 +417,20 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel EditAdmin;
+    private javax.swing.JLabel HistoryAdmin;
+    private javax.swing.JLabel LogoutAdmin;
+    private javax.swing.JLabel NewEmAdmin;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel txtdate;
